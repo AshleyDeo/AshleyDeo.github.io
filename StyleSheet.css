@@ -1,0 +1,37 @@
+﻿.header{
+    color: white;
+    background-color: grey;
+    font-family: Georgia;
+}
+.header a {
+    text-decoration: none;
+    color: white;
+}
+.middle {
+    background-color: rgba(191, 195, 201, 0.7);
+    color: mediumblue;
+}
+.footer {
+    text-align: center;
+    color: black;
+    background-color: lightgrey;
+}
+.sidebar {
+    display: block;
+    width: 10%;
+    font-size: 25px;
+    padding:4px 4px 4px 4px;
+}
+a:hover{
+    color:deepskyblue;
+}
+.middle a {
+    color: mediumblue;
+    text-decoration: none;
+}
+.TEXT {
+    display: block;
+    width: 90%;
+    font-size: 50px;
+    transform: rotateX(90);
+}
