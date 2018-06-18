@@ -1,37 +1,75 @@
-﻿.header{
-    color: white;
-    background-color: grey;
-    font-family: Georgia;
+﻿@import url('https://fonts.googleapis.com/css?family=Courgette|Lato');
+
+/*defult look*/
+body {
+    width: calc(100% - 40px);
+    padding:0;
+    background-color: rgb(241,233,231);
+    font-family: 'Lato', sans-serif;
+    
 }
-.header a {
-    text-decoration: none;
-    color: white;
-}
-.middle {
-    background-color: rgba(191, 195, 201, 0.7);
-    color: mediumblue;
-}
-.footer {
+
+.Bar {
+    font-family: 'Courgette', cursive;
+    font-size: 10px;
     text-align: center;
-    color: black;
-    background-color: lightgrey;
+    margin-left: auto;
+    margin-right: auto;
 }
-.sidebar {
-    display: block;
-    width: 10%;
-    font-size: 25px;
-    padding:4px 4px 4px 4px;
+h2 {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Courgette', cursive;
+    font-size: 16px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
-a:hover{
-    color:deepskyblue;
+p {
+    overflow-wrap:normal;
+    width: calc(100% - 40px);
+    margin-left: auto;
+    margin-right: auto;
+
 }
-.middle a {
-    color: mediumblue;
-    text-decoration: none;
+
+.About {
+    font-family: 'Lato', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
 }
-.TEXT {
-    display: block;
-    width: 90%;
-    font-size: 50px;
-    transform: rotateX(90);
+.Project {
+    width:500px;
+    margin:auto;
+}
+image.Project {
+    width: 50px;
+    height: auto;
+}
+p.Project {
+}
+/*style ___ px <= */
+@media (min-width: 600px) {
+    body {
+        max-width: 2000px
+    }
+    h1 {
+        background: pink;
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    p {
+        max-width: 75%;
+    }
+    .Project {
+        width:80%;
+    }
+    image.Project {
+        float: left;
+    }
+    p.Project {
+        float: right;
+    }
 }
