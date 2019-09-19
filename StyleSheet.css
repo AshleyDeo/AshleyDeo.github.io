@@ -26,6 +26,7 @@ h2 {
     margin-right: auto;
 }
 p {
+    color: black;
     overflow-wrap:normal;
     width: calc(100% - 40px);
     margin-left: auto;
@@ -38,15 +39,18 @@ p {
     margin-left: auto;
     margin-right: auto;
 }
-.Project {
-    width:500px;
-    margin:auto;
+div.Project {
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dashed blue;
 }
-image.Project {
-    width: 50px;
-    height: auto;
+img.Project{
+    width: 500px;
+    height:auto;
 }
-p.Project {
+p.Project{
+    color:crimson;
+    padding: 10px;
 }
 /*style ___ px <= */
 @media (min-width: 600px) {
@@ -61,15 +65,17 @@ p.Project {
         font-size: 30px;
     }
     p {
-        max-width: 75%;
     }
-    .Project {
-        width:80%;
+    div.Project {
+       max-width:95%;
     }
-    image.Project {
+    div.Project img {
+        max-width: 1000px;
+        height:auto;
         float: left;
     }
     p.Project {
-        float: right;
+        color: green;
+        padding: 10px;
     }
 }

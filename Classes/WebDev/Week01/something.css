@@ -1,0 +1,19 @@
+body {
+    background-color: aqua;
+    text-align: center;
+}
+h3 {
+    color:red;
+    font-family: 'Century Gothic';
+    font-size: 80px;
+}
+h4 {
+    color:crimson;
+    text-decoration: underline;
+    font-size: 40px;
+}
+p {
+    background-color: aquamarine;
+    color: black;
+    font-size: 20px;
+}
