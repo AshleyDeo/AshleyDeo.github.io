@@ -1,0 +1,62 @@
+body {
+    background-color: black;
+    color: white;
+    margin: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#Settings {
+    float: left;
+    width: 100%;
+    height:10%;
+    vertical-align: top;
+}
+
+#Center {
+    width: 80%;
+    /*text-align: center;*/
+    justify-content: center;
+    vertical-align: middle;
+}
+.Middle {
+    height:80%;
+}
+
+#Scroll{
+    overflow:scroll;
+}
+
+#Player {
+    float: right;
+    /*transform: rotate(-90deg);*/
+    height: 80%;
+    width: 10%;
+    /*vertical-align: middle;*/
+}
+
+#Worlds {
+    width: 100%;
+    vertical-align: bottom;
+}
+#Skills {
+    float: left;
+    /*transform: rotate(90deg);*/
+    height: 80%;
+    /*vertical-align: middle;*/
+}
+
+.Arrows{
+    /*width:10%;
+    height:10%;*/
+    /*position: absolute;*/
+}
+
+a{
+    color:white;
+    text-decoration:none;
+}
+
+a:hover{
+    color: lawngreen;
+}
