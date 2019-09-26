@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Classes",
+    "\\Classes\\3DModeling",
+    "\\Classes\\WebDev\\Week03\\Images"
   ],
-  "SelectedNode": "\\responsive.html",
+  "SelectedNode": "\\Classes\\3DModeling\\index.html",
   "PreviewInSolutionExplorer": false
 }
