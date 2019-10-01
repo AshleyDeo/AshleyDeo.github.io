@@ -1,0 +1,88 @@
+body{
+    background-color:dimgrey;
+    color:white;
+    text-align:center;
+    font-size:40px;
+}
+
+h2 {
+    background-color: rebeccapurple;
+}
+
+h3{
+    background-color:mediumpurple;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover{
+    color:hotpink;
+}
+
+.div_image {
+    position: relative;
+    margin: 10px;
+    max-height: 700px;
+}
+
+.image {
+    display: block;
+    max-height: 700px;
+    width: auto;
+}
+
+.overlayTop {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: white;
+}
+
+.overlayBottom {
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgb(25,25,25);
+}
+
+.div_image:hover .overlayTop {
+    opacity: 0.7;
+}
+
+.div_image:hover .overlayBottom {
+    opacity: 0.7;
+}
+
+.overlayDefinition {
+    color: black;
+    font-size: 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlayText {
+    color: white;
+    font-size: 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
