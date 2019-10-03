@@ -2,7 +2,7 @@ body{
     background-color:dimgrey;
     color:white;
     text-align:center;
-    font-size:40px;
+    font-size:30px;
 }
 
 h2 {
@@ -71,7 +71,7 @@ a:hover{
 
 .overlayDefinition {
     color: black;
-    font-size: 35px;
+    font-size: 25px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -80,9 +80,23 @@ a:hover{
 
 .overlayText {
     color: white;
-    font-size: 35px;
+    font-size: 25px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media only screen and (min-width: 400px);
+
+.div_image {
+    position: relative;
+    margin: 10px;
+    max-height: 700px;
+}
+
+.image {
+    display: block;
+    max-height: 700px;
+    width: auto;
 }
