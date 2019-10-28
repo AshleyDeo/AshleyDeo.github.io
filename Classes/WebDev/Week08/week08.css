@@ -1,0 +1,36 @@
+*{
+    background-color:darkblue;
+    color:yellow;
+}
+a {
+    text-decoration: none;
+    color: lightgreen;
+}
+
+a:hover {
+    color: yellow;
+}
+h1{
+    color:greenyellow;
+    text-align:center;
+}
+
+h4{
+    color:lawngreen;
+}
+
+img{
+    width:36em;
+    /*float: right;*/
+}
+
+.sec {
+    width: 100%;
+    display: flex;
+    align-content: space-evenly;
+    font-size: 1.05em;
+}
+
+.sec > div {
+    padding:1em;
+}

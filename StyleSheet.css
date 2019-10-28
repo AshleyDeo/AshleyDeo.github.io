@@ -1,7 +1,139 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Courgette|Lato');
+﻿/*
+Resources:
+    - Glitch Animation: 
+    https://css-tricks.com/glitch-effect-text-images-svg/
+    https://operationsamusreturns.com/en-gb/suit
+
+*/
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Courgette|Lato');
 
 /*defult look*/
 body {
+    background-color: #000000;
+    color: rgba(0,59,255,0.8);
+    font-family: Rajdhani;
+    text-align: center;
+}
+a {
+    font-size: 1em;
+    color: #65DAFF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #65DAFF;
+    font-size: 1.5em;
+}
+
+.name{
+    font-family: Raleway;
+}
+
+.glitch {
+    text-align: center;
+    font-size: 6em;
+    position: relative;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    /* variation */
+    left: 5px;
+    text-shadow: -1px 0 blue;
+
+    /* important: opaque background masks the original */
+    background: black;
+
+    clip: rect(0, 550px, 0, 0);
+
+    /*Animation*/
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    /* variation */
+    left: -5px;
+    text-shadow: -1px 0 blue;
+    margin-top: -1px;
+    margin-left: -1px;
+    /* important: opaque background masks the original */
+    background: black;
+
+    /*Animation*/
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim-1 {
+    0% {
+        clip-path: inset(40% 0 61% 0);
+    }
+
+    20% {
+        clip-path: inset(92% 0 1% 0);
+    }
+
+    40% {
+        clip-path: inset(43% 0 1% 0);
+    }
+
+    60% {
+        clip-path: inset(25% 0 58% 0);
+    }
+
+    80% {
+        clip-path: inset(54% 0 7% 0);
+    }
+
+    100% {
+        clip-path: inset(58% 0 43% 0);
+    }
+}
+@keyframes glitch-anim-2 {
+    0% {
+        clip-path: inset(40% 0 61% 0);
+    }
+
+    20% {
+        clip-path: inset(92% 0 1% 0);
+    }
+
+    40% {
+        clip-path: inset(43% 0 1% 0);
+    }
+
+    60% {
+        clip-path: inset(25% 0 58% 0);
+    }
+
+    80% {
+        clip-path: inset(54% 0 7% 0);
+    }
+
+    100% {
+        clip-path: inset(58% 0 43% 0);
+    }
+}
+
+.Norm {
+    text-align: left;
+    color: white;
+}
+
+.Norm > h3 {
+    color: aqua;
+}
+
+/*body {
     width: calc(100% - 40px);
     padding:0;
     background-color: rgb(241,233,231);
@@ -51,10 +183,10 @@ img.Project{
 p.Project{
     color:crimson;
     padding: 10px;
-}
+}*/
 /*style ___ px <= */
 @media (min-width: 600px) {
-    body {
+    /*body {
         max-width: 2000px
     }
     h1 {
@@ -77,5 +209,5 @@ p.Project{
     p.Project {
         color: green;
         padding: 10px;
-    }
+    }*/
 }
