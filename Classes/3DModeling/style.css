@@ -1,4 +1,61 @@
-body{
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Raleway&display=swap');
+body {
+    background-color: rgba(0,0,0,1.0);
+    font-family: Rajdhani;
+    color:white;
     text-align:center;
-    background-color: lightgray;
+}
+h1 {
+    color: rgba(20,20,255,0.8);
+}
+h2 {
+    color: rgba(0,255,255,1.0);
+}
+a {
+    color: rgba(101, 218, 255, 1.0);
+    text-decoration: none;
+    font-size: 1em;
+}
+    a:hover {
+        color: rgba(121, 238, 255, 1.0);
+    }
+iframe, img {
+    width: 100%;
+    border-radius: 25px;
+}
+.home{
+    float:left;
+    padding:1em;
+}
+.section{
+    padding:1em;
+    width:50vw;
+}
+.container{
+    display:flex;
+    justify-content:space-between;
+}
+
+.frame {
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(100, 226, 255,0.1), rgba(100, 226, 255,0.4));
+    padding: 1em;
+    border-radius: 25px;
+}
+
+.floating {
+    animation: floating-anim 2s ease-in-out infinite;
+}
+
+@keyframes floating-anim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }

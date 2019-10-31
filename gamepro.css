@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Raleway&display=swap');
+body {
+    background-color: rgba(0,0,0,1.0);
+    color: rgba(0,59,255,0.8);
+    font-family: Rajdhani;
+    text-align: center;
+}
+p {
+    color: white;
+}
+a {
+    color: rgba(101, 218, 255, 1.0);
+    text-decoration: none;
+}
+
+    a:hover {
+        color: rgba(121, 238, 255, 1.0);
+        font-size: 1.2em;
+        /*add animation*/
+    }
+
+h2{
+    color:rgba(0,255,255,1.0);
+}
+.name {
+    font-family: Raleway;
+}
+.Norm{
+    text-align:left;
+}
+
+.Norm > h3 > a{
+    color:aqua;
+}
+
+.container{
+    display: flex;
+}
+
+.floating{
+    padding:1em;
+    animation: floating-anim 2s infinite;
+}
+
+@keyframes floating-anim{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(10px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}

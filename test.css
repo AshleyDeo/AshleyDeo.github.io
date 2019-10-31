@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Raleway&display=swap');
 * {
     height:100%;
     margin:0;
@@ -29,13 +30,20 @@
     max-height: 100vh;
     margin: auto;
 }*/
-/*.background {
-    background-image: url('Images/DeosaranA_0515_Environment.jpg');
+.background {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    height: calc(100vw * (1080 / 3000));
+    /*width: calc(100vw * (1080 / 1920));*/
+    width: 100vw;
+}
+
+#background-img {
+    width: 100%;
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}*/
+    display: block;
+}
 
 /*.container{
     display: grid;
