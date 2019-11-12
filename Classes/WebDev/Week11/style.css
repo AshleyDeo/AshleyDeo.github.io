@@ -1,0 +1,42 @@
+*{
+    font-family:Arial;
+}
+a{
+    text-decoration:none;
+    color:darkgray;
+}
+.Sky-1,.Sky-2 {
+    display: none;
+    flex-wrap:wrap;
+}
+.SkyObj-1{
+    padding-left:1em;
+    padding-right:2em;
+}
+.SkyObj-2{
+    padding-left:2em;
+    padding-right:1em;
+}
+.SkyObj-3{
+    padding-left:1em;
+    padding-right:3em;
+}
+#Times{
+    font-size:4em;
+    display:flex;
+    width:100%;
+}
+#Night{
+    float:left;
+    padding:2em;
+    color:#070B34;
+    width:50%;
+    text-align:center;
+}
+#Day {
+    float: right;
+    padding: 2em;
+    color: #ffcc00;
+    width: 50%;
+    text-align: center;
+}

@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\Classes",
-    "\\Classes\\3DModeling",
     "\\Classes\\WebDev",
     "\\Classes\\WebDev\\Week02",
     "\\Classes\\WebDev\\Week03",
     "\\Classes\\WebDev\\Week05",
     "\\Classes\\WebDev\\Week09",
     "\\Classes\\WebDev\\Week10",
+    "\\Classes\\WebDev\\Week11",
     "\\Images"
   ],
-  "SelectedNode": "\\Classes\\WebDev\\webdev.html",
+  "SelectedNode": "\\Classes\\WebDev\\Week11\\script.js",
   "PreviewInSolutionExplorer": false
 }
