@@ -5,10 +5,12 @@ var raycaster = new THREE.Raycaster(), INTERSECTED;
 var mouse = new THREE.Vector2();
 var playerPieces = new THREE.Object3D();
 var enemyPieces = new THREE.Object3D();
+var gameBoard = new THREE.Object3D();
 var clickedPiece = null;
 var hoverPiece = null;
 var clickedPieceColor = null;
 var hoverPieceColor = null;
+document.getElementById("Trapdoor").addEventListener("click", useTrap);
 
 function main() {
     scene = new THREE.Scene();
@@ -21,7 +23,8 @@ function main() {
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    camera.position.set(0, 10, 10);
+    //camera.position.set(0, 20, 0);
+    camera.position.set(0, (window.innerWidth/ window.innerHeight) * 10, 0);
     controls.update();
 
     board = new Array(8);
@@ -71,7 +74,7 @@ function main() {
         }
     }
     z = -3;
-    x = -4;
+    x = -3;
     for (var i = 0; i < 12; i++) {
         var Material = new THREE.MeshBasicMaterial({ color: 0xaaffaa });
         var enemyPiece = new THREE.Mesh(playerPieceGeo, Material);
@@ -82,10 +85,10 @@ function main() {
         if (i % 4 == 3) {
             z++;
             if (i < 7) {
-                x = -3;
+                x = -4;
 
             } else {
-                x = -4;
+                x = -3;
             }
         }
     }
@@ -103,19 +106,26 @@ function onDocumentMouseDown(event) {
 
     raycaster.setFromCamera(mouse, camera);
 
+    //Player Pieces selected
     var intersects = raycaster.intersectObjects(scene.children);
     if (intersects.length > 0) {
         if (clickedPiece != intersects[0]) {
             if (clickedPiece != null) {
                 clickedPiece.object.material.color.setHex(clickedPieceColor);
+                clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y - 0.5, clickedPiece.object.position.z);
             }
             if (clickedPiece == null || INTERSECTED != clickedPiece.object) {
                 clickedPieceColor = hoverPieceColor;
             }
             clickedPiece = intersects[0];
             clickedPiece.object.material.color.set(0xff00ff);
+            clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y + 0.5, clickedPiece.object.position.z);
+
+            document.getElementById("Trapdoor").style.backgroundColor ='#'+(Math.random()*0xFFFFFF<<0).toString(16);
+
         } else {
             clickedPiece.object.material.color.setHex(clickedPieceColor);
+            clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y - 0.5, clickedPiece.object.position.z);
             clickedPiece = null;
         }
         console.log("Clicked");
@@ -182,6 +192,10 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.updateProjectionMatrix();
 };
+
+function useTrap() {
+    console.log("Trap Used!!");
+}
 
 main();
 animate();
