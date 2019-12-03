@@ -10,6 +10,7 @@ var clickedPiece = null;
 var hoverPiece = null;
 var clickedPieceColor = null;
 var hoverPieceColor = null;
+var colors = [0xaaaaaa, 0xffaa00, 0xaaaaff];
 document.getElementById("Trapdoor").addEventListener("click", useTrap);
 
 function main() {

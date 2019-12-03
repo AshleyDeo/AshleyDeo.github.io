@@ -45,10 +45,12 @@ h1{
     z-index:-3;
     padding: 1.5em;
     font-size:2.2em;
-    opacity:0.5;
+    opacity:0.4;
 }
 #Help-Button {
     float: right;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
     border-radius: 2em;
     padding: 1em;
     font-size: 2em;
@@ -63,6 +65,7 @@ h1{
     float: right;
     border-radius: 0.2em;
     padding: 1em;
+    margin-right:0.5em;
     font-size: 2em;
     background-color: rgba(150, 150, 150, 0.8);
     border:none;

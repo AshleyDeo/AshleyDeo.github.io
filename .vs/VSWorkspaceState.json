@@ -3,8 +3,12 @@
     "",
     "\\3D_Models",
     "\\Classes",
+    "\\Classes\\WebDev",
+    "\\Classes\\WebDev\\Week09",
+    "\\Classes\\WebDev\\Week10",
+    "\\Classes\\WebDev\\Week11",
     "\\js"
   ],
-  "SelectedNode": "\\test.css",
+  "SelectedNode": "\\Classes\\WebDev\\Week09\\index.html",
   "PreviewInSolutionExplorer": false
 }
