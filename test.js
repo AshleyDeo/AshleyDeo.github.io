@@ -1,7 +1,7 @@
 var scene, renderer, camera;
 var controls;
 var board;
-var raycaster = new THREE.Raycaster(), INTERSECTED;
+var raycaster = new THREE.Raycaster(), pIntersected, bIntersected;
 var mouse = new THREE.Vector2();
 var playerPieces = new THREE.Object3D();
 var enemyPieces = new THREE.Object3D();
@@ -10,6 +10,10 @@ var clickedPiece = null;
 var hoverPiece = null;
 var clickedPieceColor = null;
 var hoverPieceColor = null;
+var clickedSpace = null;
+var hoverSpace = null;
+var clickedSpaceColor = null;
+var hoverSpaceColor = null;
 var colors = [0xaaaaaa, 0xffaa00, 0xaaaaff];
 document.getElementById("Trapdoor").addEventListener("click", useTrap);
 
@@ -33,10 +37,9 @@ function main() {
         board[i] = new Array(8);
     }
 
+    //BOARD
     var boardBoxGeo = new THREE.BoxGeometry(1, 1, 1);
-    var playerPieceGeo = new THREE.CylinderGeometry(0.5, 0.5, 0.25, 32);
-    
-
+  
     for (var x = 0; x < 8; x++) { // Create Board
         for (var y = 0; y < 8; y++) {
             if ((x + y) % 2 == 0) {
@@ -52,16 +55,21 @@ function main() {
                 board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
                 board[x][y].position.set(x - 4, 0, -y + 4);
             }
-            scene.add(board[x][y]);
+            gameBoard.add(board[x][y]);
         }
     }
+    scene.add(gameBoard);
+
+    //PLAYER
+    var playerPieceGeo = new THREE.CylinderGeometry(0.5, 0.5, 0.25, 32);
     var z = 4;
     var x = -4;
     for (var i = 0; i < 12; i++) {
         var Material = new THREE.MeshBasicMaterial({ color: 0xaaaaff });
         var playerPiece = new THREE.Mesh(playerPieceGeo, Material);
         playerPiece.position.set(x, 0.7, z);
-        scene.add(playerPiece);
+        playerPieces.add(playerPiece);
+
         x += 2;
         
         if (i % 4 == 3) {
@@ -74,13 +82,16 @@ function main() {
             }
         }
     }
+    scene.add(playerPieces);
+
+    //ENEMY
     z = -3;
     x = -3;
     for (var i = 0; i < 12; i++) {
         var Material = new THREE.MeshBasicMaterial({ color: 0xaaffaa });
         var enemyPiece = new THREE.Mesh(playerPieceGeo, Material);
         enemyPiece.position.set(x, 0.7, z);
-        scene.add(enemyPiece);
+        enemyPieces.add(enemyPiece);
         x += 2;
         
         if (i % 4 == 3) {
@@ -93,7 +104,10 @@ function main() {
             }
         }
     }
+    scene.add(enemyPieces);
 
+
+    //Event Listeners
     window.addEventListener('mousedown', onDocumentMouseDown, false);
     window.addEventListener('mousemove', onMouseMove, false);
     window.addEventListener('resize', onWindowResize, false);
@@ -107,18 +121,45 @@ function onDocumentMouseDown(event) {
 
     raycaster.setFromCamera(mouse, camera);
 
+    //Space selected
+    if (clickedPiece != null) {
+
+        var intersects = raycaster.intersectObjects(gameBoard.children);
+        if (intersects.length > 0) {
+            if (clickedSpace != intersects[0]) {
+                if (clickedSpace != null) {
+                    clickedSpace.object.material.color.setHex(clickedSpaceColor);
+                }
+                if (clickedSpace == null || bIntersected != clickedSpace.object) {
+                    clickedSpaceColor = hoverSpaceColor;
+                }
+                clickedSpace = intersects[0];
+                clickedSpace.object.material.color.set(0xff00ff);
+                clickedPiece.object.material.color.setHex(clickedPieceColor);
+                clickedPiece.object.position.set(clickedSpace.object.position.x, clickedPiece.object.position.y - 0.5, clickedSpace.object.position.z);
+                clickedPiece = null;
+
+                document.getElementById("Trapdoor").style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+
+            }
+            clickedSpace.object.material.color.setHex(clickedSpaceColor);
+            clickedSpace = null;
+            console.log("Clicked");
+        }
+    }
+
     //Player Pieces selected
-    var intersects = raycaster.intersectObjects(scene.children);
-    if (intersects.length > 0) {
-        if (clickedPiece != intersects[0]) {
+    var pintersects = raycaster.intersectObjects(playerPieces.children);
+    if (pintersects.length > 0) {
+        if (clickedPiece != pintersects[0]) {
             if (clickedPiece != null) {
                 clickedPiece.object.material.color.setHex(clickedPieceColor);
                 clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y - 0.5, clickedPiece.object.position.z);
             }
-            if (clickedPiece == null || INTERSECTED != clickedPiece.object) {
+            if (clickedPiece == null || pIntersected != clickedPiece.object) {
                 clickedPieceColor = hoverPieceColor;
             }
-            clickedPiece = intersects[0];
+            clickedPiece = pintersects[0];
             clickedPiece.object.material.color.set(0xff00ff);
             clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y + 0.5, clickedPiece.object.position.z);
 
@@ -131,7 +172,6 @@ function onDocumentMouseDown(event) {
         }
         console.log("Clicked");
     }
-
 };
 
 function onMouseMove(event) {
@@ -147,36 +187,66 @@ function render() {
     // update the picking ray with the camera and mouse position
     raycaster.setFromCamera(mouse, camera);
 
-    var intersects = raycaster.intersectObjects(scene.children);
-    // calculate objects intersecting the picking ray
-
     /* https://codepen.io/PavelLaptev/pen/Rjxoeq?editors=0010 */
     /* https://jsfiddle.net/zbomt9cf/ */
+
+    //Select Space
+    if (clickedPiece != null) {
+        var intersects = raycaster.intersectObjects(gameBoard.children);
+        if (clickedSpace != null) {
+            clickedSpace.object.material.color.set(0x0000ff);
+        }
+        if (intersects.length > 0) {
+            // if the closest object pIntersected is not the currently stored intersection object
+            if (intersects[0].object != bIntersected) {
+                // restore previous intersection object (if it exists) to its original color
+                if (bIntersected)
+                    bIntersected.material.color.setHex(hoverSpaceColor);
+                // store reference to closest object as current intersection object
+                bIntersected = intersects[0].object;
+                // store color of closest object (for later restoration)
+                hoverSpaceColor = bIntersected.material.color.getHex();
+                // set a new color for closest object
+                if (clickedSpace == null || bIntersected != clickedSpace.object) {
+                    bIntersected.material.color.setHex(0x0000ff);
+                }
+            }
+        } else { // there are no intersections
+
+            if (bIntersected) {
+                bIntersected.material.color.setHex(hoverSpaceColor);
+            }
+            bIntersected = null;
+        }
+    }
+
+    //Select Player
+    var pintersects = raycaster.intersectObjects(playerPieces.children);
 
     if (clickedPiece != null) {
         clickedPiece.object.material.color.set(0xffaaff);
     }
-    if (intersects.length > 0) {
-        // if the closest object intersected is not the currently stored intersection object
-        if (intersects[0].object != INTERSECTED) {
+    if (pintersects.length > 0) {
+        // if the closest object pIntersected is not the currently stored intersection object
+        if (pintersects[0].object != pIntersected) {
             // restore previous intersection object (if it exists) to its original color
-            if (INTERSECTED)
-                INTERSECTED.material.color.setHex(hoverPieceColor);
+            if (pIntersected)
+                pIntersected.material.color.setHex(hoverPieceColor);
             // store reference to closest object as current intersection object
-            INTERSECTED = intersects[0].object;
+            pIntersected = pintersects[0].object;
             // store color of closest object (for later restoration)
-            hoverPieceColor = INTERSECTED.material.color.getHex();
+            hoverPieceColor = pIntersected.material.color.getHex();
             // set a new color for closest object
-            if (clickedPiece == null || INTERSECTED != clickedPiece.object) {
-                INTERSECTED.material.color.setHex(0xffff00);
+            if (clickedPiece == null || pIntersected != clickedPiece.object) {
+                pIntersected.material.color.setHex(0xffff00);
             }
         }
     } else { // there are no intersections
 
-        if (INTERSECTED) {
-            INTERSECTED.material.color.setHex(hoverPieceColor);
+        if (pIntersected) {
+            pIntersected.material.color.setHex(hoverPieceColor);
         }
-        INTERSECTED = null;
+        pIntersected = null;
     }
 }
 
