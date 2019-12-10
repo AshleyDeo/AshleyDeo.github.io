@@ -13,6 +13,7 @@ var clickedPieceColor = null;
 var hoverPieceColor = null;
 var colors = [0xaaaaaa, 0xffaa00, 0xaaaaff];
 document.getElementById("Trapdoor").addEventListener("click", useTrap);
+document.getElementById("modal").addEventListener("click", openPopUp);
 
 function main() {
     scene = new THREE.Scene();
@@ -194,7 +195,14 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.updateProjectionMatrix();
 };
-
+function openPopUp() {
+    modal.style.display = "block";
+}
+function closePopUp(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 function useTrap() {
     console.log("Trap Used!!");
 }

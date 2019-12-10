@@ -18,9 +18,9 @@ canvas {
 }
 .top {
     width: 100%;
-    display: flex;
+    /*display: flex;
     align-items:flex-start;
-    justify-content:space-between;
+    justify-content:space-between;*/
 }
 a{
     text-decoration:none;
@@ -37,15 +37,21 @@ h1{
     font-size:1.5em;
     background-color:blue;
     color:white;
+    position:fixed;
+    top:0;
+    left:0;
 }
-
+#Back-Button:hover {
+    color: blue;
+    background-color: white;
+}
 .heading {
-    float:none;
-    text-align:center;
-    z-index:-3;
-    padding: 1.5em;
-    font-size:2.2em;
-    opacity:0.4;
+    float: none;
+    text-align: center;
+    z-index: -3;
+    padding: 1em;
+    font-size: 2.2em;
+    opacity: 0.4;
 }
 #Help-Button {
     float: right;
@@ -63,13 +69,44 @@ h1{
 }
 #Trapdoor {
     float: right;
-    border-radius: 0.2em;
+    border-radius: 0.5em;
     padding: 1em;
-    margin-right:0.5em;
+    margin: 0.5em;
     font-size: 2em;
     background-color: rgba(150, 150, 150, 0.8);
-    border:none;
+    border: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 #Trapdoor:hover{
-    border:0.2em solid red;
+    border:0.1em solid blue;
+}
+#modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#modal-content {
+    font-size:1.5em;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 1em;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
 }

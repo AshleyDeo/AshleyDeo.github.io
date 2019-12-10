@@ -6,6 +6,7 @@ var mouse = new THREE.Vector2();
 var playerPieces = new THREE.Object3D();
 var enemyPieces = new THREE.Object3D();
 var gameBoard = new THREE.Object3D();
+
 var clickedPiece = null;
 var hoverPiece = null;
 var clickedPieceColor = null;
@@ -15,7 +16,19 @@ var hoverSpace = null;
 var clickedSpaceColor = null;
 var hoverSpaceColor = null;
 var colors = [0xaaaaaa, 0xffaa00, 0xaaaaff];
-document.getElementById("Trapdoor").addEventListener("click", useTrap);
+//document.getElementById("Trapdoor").addEventListener("click", useTrap);
+let modal = document.getElementById("modal");
+var btn = document.getElementById("Help-Button");
+var span = document.getElementsByClassName("close")[0];
+
+let TurnCounter = 0;
+
+enemyPositions = new Array(8);
+boardPositions = new Array(8);
+for (var i = 0; i < 8; i++) {
+    boardPositions[i] = new Array(8);
+}
+
 
 function main() {
     scene = new THREE.Scene();
@@ -42,20 +55,24 @@ function main() {
   
     for (var x = 0; x < 8; x++) { // Create Board
         for (var y = 0; y < 8; y++) {
-            if ((x + y) % 2 == 0) {
+            boardPositions[x][y] = 0;
+            if ((x + y) % 2 == 0 && 2 < y && y < 5) {
+                var Material = new THREE.MeshBasicMaterial({ color: 0x00b000 });
+                board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
+                board[x][y].position.set(x - 4, 0, -y + 4);
+                gameBoard.add(board[x][y]);
+            } else if ((x + y) % 2 == 0) {
                 var Material = new THREE.MeshBasicMaterial({ color: 0xffaa00 });
                 board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
                 board[x][y].position.set(x - 4, 0, -y + 4);
-            } else if ((x + y) % 2 == 0 && 2 < y && y < 5) {
-                var Material = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
-                board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
-                board[x][y].position.set(x - 4, 0, -y + 4);
+                gameBoard.add(board[x][y]);
             } else {
                 var Material = new THREE.MeshBasicMaterial({ color: 0xffffff });
                 board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
                 board[x][y].position.set(x - 4, 0, -y + 4);
+                //scene.add(board[x][y]);
+                scene.add(board[x][y]);
             }
-            gameBoard.add(board[x][y]);
         }
     }
     scene.add(gameBoard);
@@ -67,7 +84,9 @@ function main() {
     for (var i = 0; i < 12; i++) {
         var Material = new THREE.MeshBasicMaterial({ color: 0xaaaaff });
         var playerPiece = new THREE.Mesh(playerPieceGeo, Material);
-        playerPiece.position.set(x, 0.7, z);
+        playerPiece.position.set(x, 0.6, z);
+        console.log((x + 4) + ", " + (z + 4));
+        boardPositions[z + 3][x + 4] = 1;
         playerPieces.add(playerPiece);
 
         x += 2;
@@ -90,7 +109,8 @@ function main() {
     for (var i = 0; i < 12; i++) {
         var Material = new THREE.MeshBasicMaterial({ color: 0xaaffaa });
         var enemyPiece = new THREE.Mesh(playerPieceGeo, Material);
-        enemyPiece.position.set(x, 0.7, z);
+        enemyPiece.position.set(x, 0.6, z);
+        boardPositions[z + 3][x + 4] = 2;
         enemyPieces.add(enemyPiece);
         x += 2;
         
@@ -106,8 +126,12 @@ function main() {
     }
     scene.add(enemyPieces);
 
+    //printBoard();
 
     //Event Listeners
+
+    btn.addEventListener("click", openPopUp);
+
     window.addEventListener('mousedown', onDocumentMouseDown, false);
     window.addEventListener('mousemove', onMouseMove, false);
     window.addEventListener('resize', onWindowResize, false);
@@ -115,62 +139,39 @@ function main() {
 }
 function onDocumentMouseDown(event) {
 
-    event.preventDefault();
+    //event.preventDefault();
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
 
     //Space selected
-    if (clickedPiece != null) {
+    if (TurnCounter % 2 == 0) {
+        movePiece();
 
-        var intersects = raycaster.intersectObjects(gameBoard.children);
-        if (intersects.length > 0) {
-            if (clickedSpace != intersects[0]) {
-                if (clickedSpace != null) {
-                    clickedSpace.object.material.color.setHex(clickedSpaceColor);
+        //Player Pieces selected
+        var pintersects = raycaster.intersectObjects(playerPieces.children);
+        if (pintersects.length > 0) {
+            if (clickedPiece != pintersects[0]) {
+                if (clickedPiece != null) {
+                    clickedPiece.object.material.color.setHex(clickedPieceColor);
+                    clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y - 0.5, clickedPiece.object.position.z);
                 }
-                if (clickedSpace == null || bIntersected != clickedSpace.object) {
-                    clickedSpaceColor = hoverSpaceColor;
+                if (clickedPiece == null || pIntersected != clickedPiece.object) {
+                    clickedPieceColor = hoverPieceColor;
                 }
-                clickedSpace = intersects[0];
-                clickedSpace.object.material.color.set(0xff00ff);
-                clickedPiece.object.material.color.setHex(clickedPieceColor);
-                clickedPiece.object.position.set(clickedSpace.object.position.x, clickedPiece.object.position.y - 0.5, clickedSpace.object.position.z);
-                clickedPiece = null;
+                clickedPiece = pintersects[0];
+                clickedPiece.object.material.color.set(0xff00ff);
+                clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y + 0.5, clickedPiece.object.position.z);
 
                 document.getElementById("Trapdoor").style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
 
-            }
-            clickedSpace.object.material.color.setHex(clickedSpaceColor);
-            clickedSpace = null;
-            console.log("Clicked");
-        }
-    }
-
-    //Player Pieces selected
-    var pintersects = raycaster.intersectObjects(playerPieces.children);
-    if (pintersects.length > 0) {
-        if (clickedPiece != pintersects[0]) {
-            if (clickedPiece != null) {
+            } else {
                 clickedPiece.object.material.color.setHex(clickedPieceColor);
                 clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y - 0.5, clickedPiece.object.position.z);
+                clickedPiece = null;
             }
-            if (clickedPiece == null || pIntersected != clickedPiece.object) {
-                clickedPieceColor = hoverPieceColor;
-            }
-            clickedPiece = pintersects[0];
-            clickedPiece.object.material.color.set(0xff00ff);
-            clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y + 0.5, clickedPiece.object.position.z);
-
-            document.getElementById("Trapdoor").style.backgroundColor ='#'+(Math.random()*0xFFFFFF<<0).toString(16);
-
-        } else {
-            clickedPiece.object.material.color.setHex(clickedPieceColor);
-            clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y - 0.5, clickedPiece.object.position.z);
-            clickedPiece = null;
         }
-        console.log("Clicked");
     }
 };
 
@@ -221,32 +222,36 @@ function render() {
     }
 
     //Select Player
-    var pintersects = raycaster.intersectObjects(playerPieces.children);
+    if (TurnCounter % 2 == 0) {
+        var pintersects = raycaster.intersectObjects(playerPieces.children);
 
-    if (clickedPiece != null) {
-        clickedPiece.object.material.color.set(0xffaaff);
-    }
-    if (pintersects.length > 0) {
-        // if the closest object pIntersected is not the currently stored intersection object
-        if (pintersects[0].object != pIntersected) {
-            // restore previous intersection object (if it exists) to its original color
-            if (pIntersected)
-                pIntersected.material.color.setHex(hoverPieceColor);
-            // store reference to closest object as current intersection object
-            pIntersected = pintersects[0].object;
-            // store color of closest object (for later restoration)
-            hoverPieceColor = pIntersected.material.color.getHex();
-            // set a new color for closest object
-            if (clickedPiece == null || pIntersected != clickedPiece.object) {
-                pIntersected.material.color.setHex(0xffff00);
+        if (clickedPiece != null) {
+            clickedPiece.object.material.color.set(0xffaaff);
+        }
+        if (pintersects.length > 0) {
+            // if the closest object pIntersected is not the currently stored intersection object
+            if (pintersects[0].object != pIntersected) {
+                // restore previous intersection object (if it exists) to its original color
+                if (pIntersected)
+                    pIntersected.material.color.setHex(hoverPieceColor);
+                // store reference to closest object as current intersection object
+                pIntersected = pintersects[0].object;
+                // store color of closest object (for later restoration)
+                hoverPieceColor = pIntersected.material.color.getHex();
+                // set a new color for closest object
+                if (clickedPiece == null || pIntersected != clickedPiece.object) {
+                    pIntersected.material.color.setHex(0xffff00);
+                }
             }
-        }
-    } else { // there are no intersections
+        } else { // there are no intersections
 
-        if (pIntersected) {
-            pIntersected.material.color.setHex(hoverPieceColor);
+            if (pIntersected) {
+                pIntersected.material.color.setHex(hoverPieceColor);
+            }
+            pIntersected = null;
         }
-        pIntersected = null;
+    } else {
+        moveEnemy();
     }
 }
 
@@ -263,10 +268,88 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.updateProjectionMatrix();
 };
-
+function openPopUp() {
+    modal.style.display = "block";
+}
+function closePopUp(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 function useTrap() {
     console.log("Trap Used!!");
 }
 
+function movePiece() {
+    if (clickedPiece != null) {
+
+        var intersects = raycaster.intersectObjects(gameBoard.children);
+
+        if (intersects.length > 0) {
+            let moveable = checkPositions(intersects[0].object);
+            if (clickedSpace != intersects[0]) {
+                if (clickedSpace != null) {
+                    clickedSpace.object.material.color.setHex(clickedSpaceColor);
+                }
+                if (clickedSpace == null || bIntersected != clickedSpace.object) {
+                    clickedSpaceColor = hoverSpaceColor;
+                }
+                clickedSpace = intersects[0];
+
+                if (moveable) {
+                    boardPositions[clickedPiece.object.position.z + 3][clickedPiece.object.position.x + 4] = 0;
+                    clickedSpace.object.material.color.set(0xff00ff);
+                    clickedPiece.object.material.color.setHex(clickedPieceColor);
+                    clickedPiece.object.position.set(clickedSpace.object.position.x, clickedPiece.object.position.y - 0.5, clickedSpace.object.position.z);
+                    boardPositions[clickedSpace.object.position.z + 3][clickedSpace.object.position.x + 4] = 1;
+                    clickedPiece = null;
+
+                    document.getElementById("Trapdoor").style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+
+                    TurnCounter++;
+                    //console.log("MOVED!!");
+                }
+                //printBoard();
+            }
+            clickedSpace.object.material.color.setHex(clickedSpaceColor);
+            clickedSpace = null;
+            //console.log("Clicked");
+        }
+    }
+}
+
+function printBoard() {
+    for (var x = 0; x < 8; x++) { // Create Board
+        console.log(boardPositions[x]);
+    }
+}
+
+function checkPositions(space) {
+    let piece = clickedPiece.object;
+    if (space.position.z == piece.position.z - 1) {
+        if (space.position.x == piece.position.x + 1 || space.position.x == piece.position.x - 1) {
+            if (boardPositions[space.position.z + 3][space.position.x + 4] == 0) {
+                return true;
+            }
+        }
+    }
+    let movedirx = (space.position.x - piece.position.x) / 2;
+    let movedirz = (space.position.z - piece.position.z) / 2;
+    if (space.position.z == piece.position.z - 2) {
+        if (space.position.x == piece.position.x + 2 || space.position.x == piece.position.x - 2) {
+            if (boardPositions[piece.position.z + movedirz][piece.position.x + movedirx] == 2) {
+                if (boardPositions[space.position.z + 3][space.position.x + 4] == 0) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+function moveEnemy() {
+    TurnCounter++;
+}
+4
 main();
 animate();
