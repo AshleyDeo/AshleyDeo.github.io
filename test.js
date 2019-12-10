@@ -15,11 +15,14 @@ var clickedSpace = null;
 var hoverSpace = null;
 var clickedSpaceColor = null;
 var hoverSpaceColor = null;
+
 var colors = [0xaaaaaa, 0xffaa00, 0xaaaaff];
 //document.getElementById("Trapdoor").addEventListener("click", useTrap);
 let modal = document.getElementById("modal");
 var btn = document.getElementById("Help-Button");
-var span = document.getElementsByClassName("close")[0];
+//var span = document.getElementsByClassName("close")[0];
+let ctrlBar = document.getElementById("snackbar");
+
 
 let TurnCounter = 0;
 
@@ -56,7 +59,7 @@ function main() {
     for (var x = 0; x < 8; x++) { // Create Board
         for (var y = 0; y < 8; y++) {
             boardPositions[x][y] = 0;
-            if ((x + y) % 2 == 0 && 2 < y && y < 5) {
+            if ((x + y) % 2 == 0 && 1 < y && y < 6) {
                 var Material = new THREE.MeshBasicMaterial({ color: 0x00b000 });
                 board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
                 board[x][y].position.set(x - 4, 0, -y + 4);
@@ -126,11 +129,18 @@ function main() {
     }
     scene.add(enemyPieces);
 
-    //printBoard();
+    printBoard();
 
     //Event Listeners
+    document.addEventListener('DOMContentLoaded', showControl, false);
 
     btn.addEventListener("click", openPopUp);
+    //span.addEventListener("click", closePopUp);
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
     window.addEventListener('mousedown', onDocumentMouseDown, false);
     window.addEventListener('mousemove', onMouseMove, false);
@@ -164,7 +174,7 @@ function onDocumentMouseDown(event) {
                 clickedPiece.object.material.color.set(0xff00ff);
                 clickedPiece.object.position.set(clickedPiece.object.position.x, clickedPiece.object.position.y + 0.5, clickedPiece.object.position.z);
 
-                document.getElementById("Trapdoor").style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+                //document.getElementById("Trapdoor").style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
 
             } else {
                 clickedPiece.object.material.color.setHex(clickedPieceColor);
@@ -271,10 +281,12 @@ function onWindowResize() {
 function openPopUp() {
     modal.style.display = "block";
 }
-function closePopUp(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+function closePopUp() {
+    modal.style.display = "none";
+}
+function showControl() {
+    ctrlBar.className = "show";
+    setTimeout(function () { ctrlBar.className = ctrlBar.className.replace("show", ""); }, 3000);
 }
 function useTrap() {
     console.log("Trap Used!!");
@@ -304,12 +316,12 @@ function movePiece() {
                     boardPositions[clickedSpace.object.position.z + 3][clickedSpace.object.position.x + 4] = 1;
                     clickedPiece = null;
 
-                    document.getElementById("Trapdoor").style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+                    //document.getElementById("Trapdoor").style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
 
                     TurnCounter++;
                     //console.log("MOVED!!");
                 }
-                //printBoard();
+                printBoard();
             }
             clickedSpace.object.material.color.setHex(clickedSpaceColor);
             clickedSpace = null;
@@ -319,6 +331,7 @@ function movePiece() {
 }
 
 function printBoard() {
+    console.log("--BOARD--");
     for (var x = 0; x < 8; x++) { // Create Board
         console.log(boardPositions[x]);
     }
