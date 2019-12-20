@@ -59,13 +59,14 @@ function main() {
     for (let x = 0; x < 8; x++) { // Create Board
         for (let y = 0; y < 8; y++) {
             boardPositions[x][y] = 0;
-            if ((x + y) % 2 == 0 && 1 < y && y < 6) {
-                let Material = new THREE.MeshBasicMaterial({ color: 0x00b000 });
-                board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
-                board[x][y].position.set(x - 4, 0, -y + 4);
-                gameBoard.add(board[x][y]);
-            } else if ((x + y) % 2 == 0) {
-                let Material = new THREE.MeshBasicMaterial({ color: 0xffaa00 });
+            //if ((x + y) % 2 == 0 && 1 < y && y < 6) {
+            //    let Material = new THREE.MeshBasicMaterial({ color: 0xdc8665 });
+            //    board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
+            //    board[x][y].position.set(x - 4, 0, -y + 4);
+            //    gameBoard.add(board[x][y]);
+            //} else 
+            if ((x + y) % 2 == 0) {
+                let Material = new THREE.MeshBasicMaterial({ color: 0xeeb462 });
                 board[x][y] = new THREE.Mesh(boardBoxGeo, Material);
                 board[x][y].position.set(x - 4, 0, -y + 4);
                 gameBoard.add(board[x][y]);
@@ -85,7 +86,7 @@ function main() {
     let z = 4;
     let x = -4;
     for (let i = 0; i < 12; i++) {
-        let Material = new THREE.MeshBasicMaterial({ color: 0xaaaaff });
+        let Material = new THREE.MeshBasicMaterial({ color: 0x138086 });
         let playerPiece = new THREE.Mesh(playerPieceGeo, Material);
         playerPiece.position.set(x, 0.6, z);
         console.log((x + 4) + ", " + (z + 4));
@@ -110,7 +111,7 @@ function main() {
     z = -3;
     x = -3;
     for (let i = 0; i < 12; i++) {
-        let Material = new THREE.MeshBasicMaterial({ color: 0xaaffaa });
+        let Material = new THREE.MeshBasicMaterial({ color: 0xcd7672 });
         let enemyPiece = new THREE.Mesh(playerPieceGeo, Material);
         enemyPiece.position.set(x, 0.6, z);
         boardPositions[z + 3][x + 4] = 2;
@@ -346,6 +347,7 @@ function printBoard() {
     for (let x = 0; x < 8; x++) { // Create Board
         console.log(boardPositions[x]);
     }
+    checkWin();
 }
 
 function checkPositions(space) {
@@ -366,7 +368,7 @@ function checkPositions(space) {
                 //console.log("3");
                 if (boardPositions[space.position.z + 3][space.position.x + 4] == 0) {
                     boardPositions[piece.position.z + 2][piece.position.x + 5] = 0;
-                    removePiece(space.position.z - 1, space.position.x - 1);
+                    removePiece(piece.position.z - 1, piece.position.x + 1);
                     return true;
                 }
             }
@@ -374,7 +376,7 @@ function checkPositions(space) {
                 //console.log("3");
                 if (boardPositions[space.position.z + 3][space.position.x + 4] == 0) {
                     boardPositions[piece.position.z + 2][piece.position.x + 3] = 0;
-                    removePiece(piece.position.z - 1, piece.position.x + 1);
+                    removePiece(piece.position.z - 1, piece.position.x - 1);
                     return true;
                 }
             }
@@ -417,28 +419,50 @@ function moveEnemy(space) {
     }
     return false;
 }
-let remZPosE = -5;
-let remZPosP = 5;
-function removePiece(remPosX, remPosZ) {
-    playerPieces.traverse(function (child) {
-        if (child.position.x == remPosX &&
-            child.position.z == remPosZ) {
-            console.log("PlayerRemoved");
-            child.position.x = -5;
-            child.position.z == remZPosP;
-            remZPosP++;
-        }
-    });
-    enemyPieces.traverse(function (child) {
-        if (child.position.x == remPosX &&
-            child.position.z == remPosZ) {
+let remZPosE = -10;
+let remZPosP = -10;
+function removePiece(remPosZ, remPosX) {
+    console.log("RemovalCheck: (" + remPosX + ", " + remPosZ + ")");
+
+    enemyPieces.traverse(function (enemyChild) {
+        if (enemyChild.position.x == remPosX &&
+            enemyChild.position.z == remPosZ) {
             console.log("EnemyRemoved");
-            child.position.x = 5;
-            child.position.z == remZPosE;
-            remZPosE++;
+            enemyChild.position.x = 4;
+            enemyChild.position.y = 0;
+            enemyChild.position.z == remZPosE;
+            remZPosE--;
         }
     });
 
+    playerPieces.traverse(function (playerChild) {
+        if (playerChild.position.x == remPosX &&
+            playerChild.position.z == remPosZ) {
+            console.log("PlayerRemoved");
+            playerChild.position.x = -5;
+            playerChild.position.y = 0;
+            playerChild.position.z == remZPosP;
+            remZPosP++;
+        }
+    });
+}
+
+function checkWin() {
+    let playerRemain = 0;
+    let enemiesRemain = 0;
+    for (let x = 0; x < 8; x++) { // Create Board
+        for (let y = 0; y < 8; y++) {
+            if (boardPositions[x][y] == 1) {
+                playerRemain++;
+            }
+            if (boardPositions[x][y] == 2) {
+                enemiesRemain++;
+            }
+        }
+    }
+    if (playerRemain == 0) {
+
+    }
 }
 
 main();
