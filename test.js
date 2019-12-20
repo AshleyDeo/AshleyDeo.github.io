@@ -427,22 +427,27 @@ function removePiece(remPosZ, remPosX) {
     enemyPieces.traverse(function (enemyChild) {
         if (enemyChild.position.x == remPosX &&
             enemyChild.position.z == remPosZ) {
+            console.log("Removing: (" + enemyChild.position.x + ", " + enemyChild.position.z + ")");
+
             console.log("EnemyRemoved");
             enemyChild.position.x = 4;
             enemyChild.position.y = 0;
             enemyChild.position.z == remZPosE;
             remZPosE--;
+            return;
         }
     });
 
     playerPieces.traverse(function (playerChild) {
         if (playerChild.position.x == remPosX &&
             playerChild.position.z == remPosZ) {
+            console.log("Removing: (" + playerChild.position.x + ", " + playerChild.position.z + ")");
             console.log("PlayerRemoved");
             playerChild.position.x = -5;
             playerChild.position.y = 0;
             playerChild.position.z == remZPosP;
             remZPosP++;
+            return;
         }
     });
 }
@@ -461,7 +466,10 @@ function checkWin() {
         }
     }
     if (playerRemain == 0) {
-
+        console.log("Winner");
+    }
+    if (enemiesRemain == 0) {
+        console.log("Winner");
     }
 }
 
