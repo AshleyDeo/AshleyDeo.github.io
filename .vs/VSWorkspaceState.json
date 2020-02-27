@@ -3,9 +3,11 @@
     "",
     "\\3D_Models",
     "\\Classes",
+    "\\Classes\\3DModeling",
+    "\\Classes\\CreativeCoding",
     "\\Classes\\WebDev",
-    "\\Classes\\WebDev\\Final Project"
+    "\\Classes\\WebDev\\Final_Project"
   ],
-  "SelectedNode": "\\test.js",
+  "SelectedNode": "\\test.css",
   "PreviewInSolutionExplorer": false
 }
