@@ -12,9 +12,18 @@ a, a:visited {
     a:hover {
         color: #66fcf1;
     }
+h2 {
+    color: #66fcf1;
+}
+
+h3 {
+    color: #45a29e;
+}
 
 img {
+    width:100%;
     max-width:72em;
+    height:auto;
 }
 
 footer {
@@ -23,6 +32,10 @@ footer {
 footer img {
     width: 2em;
     height: 2em;
+}
+
+.centered {
+    text-align:center;
 }
 
 .name {
