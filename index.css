@@ -12,10 +12,28 @@ a, a:visited {
     a:hover {
         color: #66fcf1;
     }
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #45a29e;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #66fcf1;
+    }
+
 h2 {
     color: #66fcf1;
 }
-
 h3 {
     color: #45a29e;
 }
@@ -33,6 +51,10 @@ footer img {
     width: 2em;
     height: 2em;
 }
+    footer img:hover {
+        width: 2.2em;
+        height: 2.2em;
+    }
 
 .centered {
     text-align:center;

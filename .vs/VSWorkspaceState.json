@@ -3,9 +3,11 @@
     "",
     "\\3D_Models",
     "\\Classes",
+    "\\Classes\\3DModeling",
     "\\Classes\\CreativeCoding",
-    "\\Classes\\WebDev"
+    "\\Classes\\WebDev",
+    "\\Images"
   ],
-  "SelectedNode": "\\gamepro.html",
+  "SelectedNode": "\\Classes\\CreativeCoding\\hw_1.html",
   "PreviewInSolutionExplorer": false
 }
