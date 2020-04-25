@@ -3,11 +3,13 @@
     "",
     "\\3D_Models",
     "\\Classes",
-    "\\Classes\\3DModeling",
     "\\Classes\\CreativeCoding",
     "\\Classes\\WebDev",
+    "\\Classes\\WebDev\\Week10",
+    "\\Classes\\WebDev\\Week11",
+    "\\Classes\\WebDev\\Week12",
     "\\Images"
   ],
-  "SelectedNode": "\\Classes\\CreativeCoding\\hw_1.html",
+  "SelectedNode": "\\Classes\\CreativeCoding\\midterm.html",
   "PreviewInSolutionExplorer": false
 }
