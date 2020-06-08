@@ -69,7 +69,7 @@ footer img {
     padding: .2em;
     /*text-align: center;*/
 }
-.nav-bar {
+#nav-bar {
     background-color: #3500d3;
     height: 100%;
     position: fixed !important;
@@ -79,7 +79,7 @@ footer img {
     overflow: hidden;
 }
 
-    .nav-bar a {
+    #nav-bar a {
         color: white;
         padding: 1em .6em;
         width: 100%;
@@ -88,17 +88,21 @@ footer img {
         outline: 0;
     }
 
-        .nav-bar a.active {
+        #nav-bar a.active {
             background-color: #00375e;
             color: white;
         }
 
-        .nav-bar a:hover:not(.active) {
+        #nav-bar a:hover:not(.active) {
             background-color: #190061;
             color: white;
         }
 
-.other {
+#nav-button {
+    visibility:hidden;
+}
+
+#other {
     margin-left: 10em;
     margin-right: 0 !important;
     padding: 20px;
@@ -125,12 +129,32 @@ footer img {
         height: 100%;
     }
 
+.indent {
+    padding-left: 1em;
+    padding-right: 1em;
+}
 /*-----Special Effects-----*/
 
 
 /*-----Phone-----*/
 @media only screen and (max-width: 600px) {
-    #main {
-        margin-left: 0
+    #nav-bar {
+        width:0;
+    }
+    #nav-button {
+        margin-left: -1em;
+        visibility: visible;
+        color: black;
+        font-weight: 900;
+        background-color: aqua;
+        width: 1.1em;
+        padding: 0.2em;
+    }
+        #nav-button:hover {
+            background-color: rgb(0, 148, 255);
+        }
+
+    #other {
+        margin-left: 2em;
     }
 }

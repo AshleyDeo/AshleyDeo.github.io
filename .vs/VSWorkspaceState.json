@@ -3,13 +3,8 @@
     "",
     "\\3D_Models",
     "\\Classes",
-    "\\Classes\\CreativeCoding",
-    "\\Classes\\WebDev",
-    "\\Classes\\WebDev\\Week10",
-    "\\Classes\\WebDev\\Week11",
-    "\\Classes\\WebDev\\Week12",
-    "\\Images"
+    "\\Classes\\CreativeCoding"
   ],
-  "SelectedNode": "\\Classes\\CreativeCoding\\midterm.html",
+  "SelectedNode": "\\index.js",
   "PreviewInSolutionExplorer": false
 }
