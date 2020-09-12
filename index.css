@@ -1,17 +1,58 @@
-@import url('https://fonts.googleapis.com/css?family=Rajdhani|Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:wght@700|Permanent+Marker&display=swap');
 
 html, body {
-    font-family: Rajdhani;
+    font-family: Raleway;
     background-color: #0b0c10;
-    color: #c5c6c7;
+    color: #fc007a;
+    font-size: 1.1em;
 }
 a, a:visited {
     text-decoration: none;
-    color: #45a29e;
+    color: #00e5ef;
 }
     a:hover {
-        color: #66fcf1;
+        color: #00ef1d;
     }
+
+h1 {
+    color: #ffffff;
+}
+
+h2 {
+    color: #66fcf1;
+}
+h3 {
+    color: #45a29e;
+}
+
+p {
+    color:#00ef1d;
+    padding: 1em;
+    font-weight:900;
+}
+
+#socials {
+    color: #fd2d53;
+    padding:.5em;
+}
+
+#name {
+    width: auto;
+    font-family: 'Permanent Marker';
+    font-size: 4.5em;
+    color: #f6019d;
+    top: 0;
+    padding: .2em;
+}
+
+.name {
+    width: auto;
+    font-family: 'Permanent Marker';
+    font-size: 3.5em;
+    color: #f6019d;
+    top: 0;
+    padding: .2em;
+}
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -31,13 +72,6 @@ a, a:visited {
         background: #66fcf1;
     }
 
-h2 {
-    color: #66fcf1;
-}
-h3 {
-    color: #45a29e;
-}
-
 img {
     width:100%;
     max-width:72em;
@@ -45,7 +79,13 @@ img {
 }
 
 footer {
-    text-align:center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding:.5em;
+    background-color: aquamarine;
 }
 footer img {
     width: 2em;
@@ -60,41 +100,26 @@ footer img {
     text-align:center;
 }
 
-.name {
-    width:auto;
-    font-family: Raleway;
-    font-size: 4em;
-    color: #66fcf1;
-    top: 0;
-    padding: .2em;
-    /*text-align: center;*/
-}
-#nav-bar {
-    background-color: #3500d3;
-    height: 100%;
-    position: fixed !important;
-    z-index: 1;
-    left:0;
-    top:0;
+.nav-bar {
+    background-color: darkcyan;
     overflow: hidden;
 }
 
-    #nav-bar a {
-        color: white;
-        padding: 1em .6em;
-        width: 100%;
-        border: none;
-        display: block;
-        outline: 0;
+    .nav-bar a {
+        text-align:center;
+        color: lightskyblue;
+        font-weight:900;
+        float: left;
+        padding:1em;
     }
 
-        #nav-bar a.active {
-            background-color: #00375e;
+        .nav-bar a.active {
+            background-color: #f6019d;
             color: white;
         }
 
-        #nav-bar a:hover:not(.active) {
-            background-color: #190061;
+        .nav-bar a:hover:not(.active) {
+            background-color: mediumpurple;
             color: white;
         }
 
@@ -103,8 +128,6 @@ footer img {
 }
 
 #other {
-    margin-left: 10em;
-    margin-right: 0 !important;
     padding: 20px;
     overflow: auto;
 }
@@ -127,34 +150,107 @@ footer img {
         left: 0;
         width: 100%;
         height: 100%;
+        max-height: 700px;
     }
 
 .indent {
     padding-left: 1em;
     padding-right: 1em;
 }
+
+.pics-row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.pics-column {
+    flex: 25%;
+    padding: 0 4px;
+}
+
+    .pics-column img {
+        margin-top: 8px;
+        vertical-align: middle;
+    }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding: 1em; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 2em;
+    font-weight: bold;
+    padding-right: 1em;
+    font-size: 3em;
+}
+
+    .close:hover,
+    .close:focus {
+        color: mediumvioletred;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/*-----Home-----*/
+.box-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    background-color: deepskyblue;
+    color: white;
+    flex: 1 1 150px;
+    margin: 5px;
+    padding: 1em;
+    font-weight: 900;
+}
+    .box:hover {
+        background-color: mediumpurple;
+        color: white;
+    }
 /*-----Special Effects-----*/
 
 
-/*-----Phone-----*/
+/*-----Phone/Smaller Screens-----*/
 @media only screen and (max-width: 600px) {
-    #nav-bar {
-        width:0;
-    }
-    #nav-button {
-        margin-left: -1em;
-        visibility: visible;
-        color: black;
-        font-weight: 900;
-        background-color: aqua;
-        width: 1.1em;
-        padding: 0.2em;
-    }
-        #nav-button:hover {
-            background-color: rgb(0, 148, 255);
-        }
-
     #other {
         margin-left: 2em;
+    }
+    .name {
+        font-size: 3em;
     }
 }
