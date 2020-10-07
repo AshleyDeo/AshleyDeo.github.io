@@ -1,27 +1,31 @@
 ﻿<!doctype html>
 <html>
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, intitial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <meta name="viewport" content="width=device-width">
     <meta charset="utf-8">
     <title>Mad Libs</title>
     <script src="madlibs.js" defer></script>
 </head>
 <body>
     <div><a href="webdev.html">Back</a></div>
+    <h1> Mad Libs</h1>
     <br>
-    <br>
-    <div id="MadLib" style="color:white;">
-        A vacation is when you take a trip to some <input type="text" class="lib-answers" placeholder="Adjective"> place with your <input type="text" class="lib-answers" placeholder="Adjective"> family. Usually you go to some place that is near a/an <input type="text" class="lib-answers" placeholder="Noun"> or up on a/an <input type="text" class="lib-answers" placeholder="Noun">. A good vacation place is one where you can ride <input type="text" class="lib-answers" placeholder="Plural Noun">
-        or play <input type="text" class="lib-answers" placeholder="Game"> or go hunting for <input type="text" class="lib-answers" placeholder="Plural Noun"> . I like to spend my time <input type="text" class="lib-answers" placeholder="Verb Ending in 'ing'"> or <input type="text" class="lib-answers" placeholder="Verb Ending in 'ing'">.
-        When parents go on a vacation, they spend their time eating three <input type="text" class="lib-answers" placeholder="Plural Noun"> a day, and fathers play golf, and mothers sit around <input type="text" class="lib-answers" placeholder="Verb Ending in 'ing'">. Last summer, my little brother fell in a/an <input type="text" class="lib-answers" placeholder="Noun"> and got poison <input type="text" class="lib-answers" placeholder="Plant"> all over his Part of the Body: <input type="text" class="lib-answers" placeholder="Noun">. My family is going to go to (the) <input type="text" class="lib-answers" placeholder="Place">, and I will practice <input type="text" class="lib-answers" placeholder="Verb Ending in 'ing'">. need vacations more than kids because parents are always very <input type="text" class="lib-answers" placeholder="Adjective"> and because they have to work <input type="text" class="lib-answers" placeholder="Number"> hours every day all year making enough <input type="text" class="lib-answers" placeholder="Plural Noun"> to pay for the vacation.
+    <div ng-app="myApp" ng-controller="inputCtrl">
+        <div>Game: <input type="text" ng-model="game"></div>
+        <div>Plant: <input type="text" ng-model="plant"></div>
+        <div>Place: <input type="text" ng-model="place"></div>
+        <div>Number: <input type="text" ng-model="num"></div>
+        <div ng-repeat="i in adj">Adjective: <input type="text" ng-model="i"></div>
+        <div ng-repeat="i in verbing">Verb ending in -ing: <input type="text" ng-model="verbing[i]"></div>
+        <div ng-repeat="i in noun">Noun: <input type="text" ng-model="noun[i]"></div>
+        <div ng-repeat="i in plnoun">Plural Noun: <input type="text" ng-model="i"></div>
         <br>
-        <br>
-        <br>
-        <!--<input type="submit" id="theSubmit">-->
         <button id="myButton">Finish</button>
-
+        <div>
+            A vacation is when you take a trip to some {{adj[0]}} place with your {{adj[1]}} family. Usually you go to some place that is near a/an {{noun[0]}} or up on a/an {{noun[1]}}. A good vacation place is one where you can ride {{plnoun[0]}} or play {{game}} or go hunting for {{plnoun[1]}} . I like to spend my time {{verbing[0]}} or {{verbing[1]}}.
+            When parents go on a vacation, they spend their time eating three {{plnoun[2]}} a day, and fathers play golf, and mothers sit around {{verbing[2]}}. Last summer, my little brother fell in a/an {{noun[2]}} and got poison {{plant}} all over his Part of the Body: {{noun[3]}}. My family is going to go to (the) {{place}}, and I will practice {{verbing[3]}}. need vacations more than kids because parents are always very {{adj[2]}} and because they have to work {{num}} hours every day all year making enough {{plnoun[3]}} to pay for the vacation.
+        </div>
     </div>
-
 </body>
 </html>

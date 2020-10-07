@@ -1,31 +1,20 @@
-$(document).ready(function () {
-    var theButton = $("#myButton").on("click", myFunction);
-    var hideFlag = 1;
-    $(".lib-answers").css({
-        'color': 'blue',
-        'border-radius': '5px',
-        'text-align' : 'center'
-    })
-    function myFunction() {
-        console.log("button clicked");
-        if (hideFlag == 1) {
-            $("#MadLib").css({ color: "black" });
-            $(".lib-answers").css({
-                'color': 'black',
-                'border': 'none',
-                'border-radius': '5px'
-            })
-        } else {
-            $("#MadLib").css({ color: "white" });
-            $(".lib-answers").css({
-                'color': 'blue',
-                'border': 'initial',
-                'border-radius': '5px'
-            })
-        }
-        hideFlag = 1 - hideFlag;
-    }
+var app = angular.module('myApp', []);
+app.controller('inputCtrl', function ($scope) {
+    $scope.game = "Game";
+    $scope.plant = "Plant";
+    $scope.place = "Place";
+    $scope.num = "Num";
+    $scope.adj = ["A", "B", "C"];
+    $scope.noun = ["A", "B", "C", "D"];
+    $scope.plnoun = ["A", "B", "C"];
+    $scope.verbing = ["A", "B", "C", "D"];
+
+    //$scope.addAdj = function () {
+    //    $scope.contact.adj.push($scope.inpTxt);
+    //    console.log($scope.contact.adj);
+    //};
 });
+
 // making a div a button
 // displaying to another div
 //$("#target").click(function () {
