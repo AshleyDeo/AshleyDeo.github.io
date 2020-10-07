@@ -16,15 +16,17 @@
         <div>Plant: <input type="text" ng-model="plant"></div>
         <div>Place: <input type="text" ng-model="place"></div>
         <div>Number: <input type="text" ng-model="num"></div>
-        <div ng-repeat="i in adj">Adjective: <input type="text" ng-model="i"></div>
-        <div ng-repeat="i in verbing">Verb ending in -ing: <input type="text" ng-model="verbing[i]"></div>
-        <div ng-repeat="i in noun">Noun: <input type="text" ng-model="noun[i]"></div>
-        <div ng-repeat="i in plnoun">Plural Noun: <input type="text" ng-model="i"></div>
+        <div>Adjective: <input type="text" ng-model="adj0"> <input type="text" ng-model="adj1"> <input type="text" ng-model="adj2"></div>
+        <div>Verb ending in -ing: <input type="text" ng-model="verbing0"> <input type="text" ng-model="verbing1"> <input type="text" ng-model="verbing2"> <input type="text" ng-model="verbing3"></div>
+        <div>Noun: <input type="text" ng-model="noun1"> <input type="text" ng-model="noun1"> <input type="text" ng-model="noun2"> <input type="text" ng-model="noun3"></div>
+        <div>Plural Noun: <input type="text" ng-model="plnoun0"> <input type="text" ng-model="plnoun1"> <input type="text" ng-model="plnoun2"></div>
         <br>
-        <button id="myButton">Finish</button>
-        <div>
-            A vacation is when you take a trip to some {{adj[0]}} place with your {{adj[1]}} family. Usually you go to some place that is near a/an {{noun[0]}} or up on a/an {{noun[1]}}. A good vacation place is one where you can ride {{plnoun[0]}} or play {{game}} or go hunting for {{plnoun[1]}} . I like to spend my time {{verbing[0]}} or {{verbing[1]}}.
-            When parents go on a vacation, they spend their time eating three {{plnoun[2]}} a day, and fathers play golf, and mothers sit around {{verbing[2]}}. Last summer, my little brother fell in a/an {{noun[2]}} and got poison {{plant}} all over his Part of the Body: {{noun[3]}}. My family is going to go to (the) {{place}}, and I will practice {{verbing[3]}}. need vacations more than kids because parents are always very {{adj[2]}} and because they have to work {{num}} hours every day all year making enough {{plnoun[3]}} to pay for the vacation.
+        Show Story: <input type="checkbox" ng-model="showStory">
+        <br>
+        <br>
+        <div ng-show="showStory">
+            A vacation is when you take a trip to some {{adj0}} place with your {{adj1}} family. Usually you go to some place that is near a/an {{noun0}} or up on a/an {{noun1}}. A good vacation place is one where you can ride {{plnoun0}} or play {{game}} or go hunting for {{plnoun1}} . I like to spend my time {{verbing0}} or {{verbing1}}.
+            When parents go on a vacation, they spend their time eating three {{plnoun2}} a day, and fathers play golf, and mothers sit around {{verbing2}}. Last summer, my little brother fell in a/an {{noun2}} and got poison {{plant}} all over his Part of the Body: {{noun3}}. My family is going to go to (the) {{place}}, and I will practice {{verbing3}}. need vacations more than kids because parents are always very {{adj2}} and because they have to work {{num}} hours every day all year making enough {{plnoun3}} to pay for the vacation.
         </div>
     </div>
 </body>
