@@ -1,27 +1,35 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
+    <title>Test</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <link href="https://fonts.googleapis.com/css?family=Rajdhani|Raleway&display=swap" rel="stylesheet">
-    <title>Welcome!!</title>
-    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap CDN Files-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--LESS Stylesheet-->
+    <link rel="stylesheet/less" type="text/css" href="index.less" />
+    <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+    <!--JavaScript File-->
     <script src="index.js" defer></script>
 </head>
 <body>
-    <div class="name">Ashley Deosaran</div>
-    <div class="box-wrap">
-        <a href="programming.html"><div class="box">Programming</div></a>
-        <a href="animations.html"><div class="box">Animation</div></a>
-        <a href="3Dprojects.html"><div class="box">Art</div></a>
+    <div class="container">
+        <div class="page-header">
+            <div>Ashley Deosaran</div>
+        </div>
+        <div>
+            <ul class="nav nav-pills nav-justified">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="programming.html">Programming</a></li>
+                <li><a href="anim.html">Graphics</a></li>
+            </ul>
+        </div>
+        <br /> <br />
+        <p>I graduated last year with a Bachelors in Computer science and minors in game engineering and integrated digital media. I have been interested in programming since high school which led me to the path of computer science. I hope to put into practice what I have learned.</p>
     </div>
-    <br>
-    <br>
-    <p>I am an NYU Graduate in Computer Science. I like questioning how things are created when I see interesting apps, game mechanics, and websites. Games had sparked my interest in coding in high school and from then I have been learning. I want to work on developing new and amazing software and learn about things I was unable to as a student or on my own. </p>
-    <br>
-    <br>
-    <footer>
-        <!--<div id="socials">Find me here:</div>-->
+    <footer class="container-fluid text-center">
         <a href="https://github.com/ashleydeo">
             <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-41-256.png" />
         </a>

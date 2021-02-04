@@ -1,0 +1,71 @@
+//Variables
+@back-color:black;
+@font-color:white;
+@link-color:rgb(50,150,255);
+@active-color:blue;
+@title-size:3em;
+@word-size:1.4em;
+
+//Elements
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    background-color: @back-color;
+    color: @font-color;
+    font-size: @word-size;
+    height: 100%;
+    margin: 0;
+}
+footer {
+    background-color: @back-color;
+    padding: .5em;
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    img {
+        max-height: 100%;
+    }
+}
+a{
+    color:@link-color;
+    :hover{
+        text-decoration:none;
+        color:red;
+    }
+}
+//Classes
+.container {
+    min-height: 100%;
+    p{
+        font-size: @word-size;
+    }
+}
+.page-header{
+    font-size:@title-size;
+}
+.active{
+    color: @active-color;
+}
+.modal-content{
+    color:black;
+}
+.tableImg {
+    max-width: 75%;
+    max-height: 50vh;
+    margin: 0 auto;
+}
+.carousel-control {
+    color: black;
+}
+.carousel-caption {
+    background-color: rgba(0,0,0,0.3);
+}
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    max-height:80vh;
+}

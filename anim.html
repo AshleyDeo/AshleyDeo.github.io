@@ -1,79 +1,198 @@
 ﻿<!doctype html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Programming</title>
     <meta charset="utf-8">
-    <title>3D Animation Projects</title>
-    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap CDN Files-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--LESS Stylesheet-->
+    <link rel="stylesheet/less" type="text/css" href="index.less" />
+    <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+    <!--JavaScript File-->
     <script src="index.js" defer></script>
 </head>
 <body>
-    <div id="nav-bar">
-        <a href="index.html">Home</a>
-        <a href="Classes/WebDev/webdev.html">Web Development</a>
-        <a href="gamedev.html">Game Development</a>
-        <a href="Classes/3DModeling/modeling.html">3D Modeling</a>
-        <a class="active" href="">3D Animation</a>
-        <a href="gamepro.html">Game Programming</a>
-        <a href="Classes/CreativeCoding/index.html">Creative Coding</a>
-    </div>
-    <div id="other">
-        <div id="nav-button">>></div>
-        <div class="name">
-            3D Animation [SPRING 2020]
+    <div class="container">
+        <!--Header-->
+        <div class="page-header">
+            <div>Programming Projects</div>
         </div>
-        <br />
-        <br />
+        <!--Nav Bar-->
         <div>
-            <div>
-                <h2>Animation Reel</h2>
-                <div class="vid-container">
-                    <iframe src="https://www.youtube.com/embed/bTnBc8FXGI0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <ul class="nav nav-pills nav-justified">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="programming.html">Programming</a></li>
+                <li class="active"><a href="anim.html">Graphics</a></li>
+            </ul>
+        </div>
+        <br />
+        <!--Content-->
+        <div>
+            <input class="form-control" id="myInput" type="text" placeholder="Search...">
+            <br>
+            <!--Table-->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Software</th>
+                    </tr>
+                </thead>
+                <tbody id="ProjectsTable">
+                    <tr>
+                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/bTnBc8FXGI0"><b>Animation Reel</b></a></td>
+                        <td>Animation</td>
+                        <td>
+                            Audio is from <a href="https://www.twitch.tv/silentsentry">SilentSentry's</a> character <a href="https://nopixel.fandom.com/wiki/Ron_Otterman">Ron Otterman</a>.
+                        </td>
+                        <td>Maya 2020, Adobe Priemere Pro, Audacity</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/nWQtD_295UM"><b>Walk Cycle</b></a></td>
+                        <td>Animation</td>
+                        <td>
+                            Blake was living a normal happy life...until the day he was attacked. They took his eye and burned his hand. Now he is on a mission...of REVENGE.
+                        </td>
+                        <td>Maya 2020, Adobe Priemere Pro</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/6Wf2XJkgRnU"><b>Juice Box</b></a></td>
+                        <td>Animation</td>
+                        <td>
+                            Storyboard <br />
+                            <a href="#ImgCarouselModal" data-toggle="modal"><img src="Images/storyboard01.png" alt="JuiceBoxStoryboard" class="tableImg" data-index="0" /></a>
+                        </td>
+                        <td>Maya 2020, Adobe Priemere Pro</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/Ab67uEcFVzQ"><b>Infinite Bouncing Ball</b></a></td>
+                        <td>Animation</td>
+                        <td>
+                            ...
+                        </td>
+                        <td>Maya 2020</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/Qsu_QBQNf0o"><b>Bouncing Balls</b></a></td>
+                        <td>Animation</td>
+                        <td>
+                            ...
+                        </td>
+                        <td>Maya 2020</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/mAhwBvYAH24"><b>Bouncing Ball</b></a></td>
+                        <td>Animation</td>
+                        <td>
+                            ...
+                        </td>
+                        <td>Maya 2020</td>
+                    </tr>
+                    <tr>
+                        <td>AKA RUN Puzzle Cube</td>
+                        <td>3D Modeling</td>
+                        <td>
+                            Physical Application created for my game company AKA RUN.<br />
+                            <a href="#ImgCarouselModal" data-toggle="modal"><img src="Images/AKARUN_cube_final.png" alt="LogoCube" class="tableImg" data-index="2" /></a>
+                        </td>
+                        <td>Adobe Photoshop, Blender3D, Cura, Ultimaker S3</td>
+                    </tr>
+                    <tr>
+                        <td>Enviroment</td>
+                        <td>3D Modeling</td>
+                        <td>
+                            Rebecca Mock room in the League of Legends World 2016 animation<br />
+                            <a href="#ImgCarouselModal" data-toggle="modal"><img src="Images/DeosaranA_0515_Environment.jpg" alt="EnviromentRender" class="tableImg" data-index="1" /></a>
+                        </td>
+                        <td>Maya 2019</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/NnPxf1z9xNw"><b>Raygun</b></a></td>
+                        <td>3D Modeling</td>
+                        <td>
+                            <a href="https://warhammer40k.fandom.com/wiki/Arc_Weapons"> Arc Pistol from Warhammer 40K</a>
+                        </td>
+                        <td>Maya 2019, Adobe Priemere Pro</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Modal -->
+    <!--Video -->
+    <div class="modal" id="videoModal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">YouTube Video</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-            </div>
-            <div>
-                <h2>Walk Cycle</h2>
-                <div class="vid-container">
-                    <iframe src="https://www.youtube.com/embed/nWQtD_295UM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div>
-                <h2>Juice Box</h2>
-                <h3>Storyboard</h3>
-
-                <div class="pics-row">
-                    <div class="pics-column">
-                        <img src="Images/storyboard01.png" alt="Anima" style="width:100%" onclick="openModal(this);">
-                        <img src="Images/storyboard02.svg" alt="My logo for my company for Visual Foundation Studio. AKARUN Game Studios." style="width:100%; background-color:white;" onclick="openModal(this);">
+                <!-- Content -->
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="popupVid" class="embed-responsive-item" width="560" height="315" src="" allowfullscreen></iframe>
                     </div>
-                </div>
-                <h3>Animation</h3>
-
-                <div>
-                    <div class="vid-container">
-                        <iframe src="https://www.youtube.com/embed/6Wf2XJkgRnU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h2>In Class Animation: Infinite Bouncing Ball</h2>
-                <div class="vid-container">
-                    <iframe src="https://www.youtube.com/embed/Ab67uEcFVzQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div>
-                <h2>Animation 2: Bouncing Balls</h2>
-                <div class="vid-container">
-                    <iframe src="https://www.youtube.com/embed/Qsu_QBQNf0o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div>
-                <h2>Animation 1: Bouncing Ball</h2>
-                <div class="vid-container">
-                    <iframe src="https://www.youtube.com/embed/mAhwBvYAH24" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
+    <!--Image Modal -->
+    <div class="modal" id="ImgCarouselModal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Image</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Content -->
+                <div class="modal-body">
+                    <!--Image Carosuel -->
+                    <div id="ImgCarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#ImgCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#ImgCarousel" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="d-block" src="Images/storyboard01.png" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img class="d-block" src="Images/storyboard02.png" alt="Second slide">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Carousel Controls-->
+                    <a class="left carousel-control" href="#ImgCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#ImgCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><!--Prevent Footer Overlap --><br>
+    <!--Footer -->
+    <footer class="container-fluid text-center">
+        <a href="https://github.com/ashleydeo">
+            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-41-256.png" />
+        </a>
+        <a href="https://www.linkedin.com/in/ashley-deosaran-656358136">
+            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-44-256.png" />
+        </a>
+        <a href="https://www.youtube.com/channel/UC9Q25Toi9Ya7lNMnCAwGbQw/">
+            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-14-256.png" />
+        </a>
+    </footer>
 </body>
 </html>
