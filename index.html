@@ -1,44 +1,60 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-    <title>Test</title>
+    <title>Welcome</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--Bootstrap CDN Files-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--LESS Stylesheet-->
-    <link rel="stylesheet/less" type="text/css" href="index.less" />
-    <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+    <!--JQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
     <!--JavaScript File-->
     <script src="index.js" defer></script>
+    <!--CSS Stylesheet  灰の木の牧草地-->
+    <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="page-header">
-            <div>Ashley Deosaran</div>
+    <div class="parallax1" style="padding: .5em;">
+        <div class="row">
+            <div class="container col-1">
+                <div class="verticalText mPlus1 shadow boxBorder shadowBox">アシュリー</div>
+            </div>
+            <div class="horizontalText col-2 shadow">Ashley Deosaran</div>
+            <div class="col-3 stack-vert">
+                <a class="btn" href="programming.html">Programming</a>
+                <a class="btn" href="anim.html">Graphics</a>
+                <a href="https://github.com/ashleydeo">
+                    <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-41-256.png" />
+                </a>
+                <a href="https://www.linkedin.com/in/ashley-deosaran-656358136">
+                    <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-44-256.png" />
+                </a>
+                <a href="https://www.youtube.com/channel/UC9Q25Toi9Ya7lNMnCAwGbQw/">
+                    <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-14-256.png" />
+                </a>
+            </div>
         </div>
-        <div>
-            <ul class="nav nav-pills nav-justified">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="programming.html">Programming</a></li>
-                <li><a href="anim.html">Graphics</a></li>
-            </ul>
-        </div>
-        <br /> <br />
-        <p>I graduated last year with a Bachelors in Computer science and minors in game engineering and integrated digital media. I have been interested in programming since high school which led me to the path of computer science. I hope to put into practice what I have learned.</p>
     </div>
-    <footer class="container-fluid text-center">
-        <a href="https://github.com/ashleydeo">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-41-256.png" />
-        </a>
-        <a href="https://www.linkedin.com/in/ashley-deosaran-656358136">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-44-256.png" />
-        </a>
-        <a href="https://www.youtube.com/channel/UC9Q25Toi9Ya7lNMnCAwGbQw/">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-14-256.png" />
-        </a>
-    </footer>
+    <div class="container colorBackground">
+        <h4>About Me</h4>
+        <p class="card">
+            I am an aspiring software engineer with a degree in Computer Science and two minors in Integrated Digital Media and Game Engineering. I'm particularly interested in software engineering or web development where I can apply my knowledege of the various programming languages. Please feel free to get in touch with me via email at deosaran.ashley@gmail.com.
+        </p>
+        <br />
+        <div class="row">
+            <div class="col-4">
+                <h5>Proficient:</h5>
+                <p>HTML, CSS, C++, Javascript, Unity, Blender 3D, Google Suite, Microsoft Suite, Gamemaker Studio</p>
+            </div>
+            <div class="col-4">
+                <h5>Knowledgeable:</h5>
+                <p>Java, SQL, Python, Autodesk Maya, Agile, Git, JQuery, Filemaker</p>
+            </div>
+            <div class="col-4">
+                <h5>Familiar:</h5>
+                <p>Adobe Suite</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

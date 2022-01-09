@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Bootstrap CDN Files-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--LESS Stylesheet-->
-    <link rel="stylesheet/less" type="text/css" href="index.less" />
-    <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+    <!--CSS Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="content.css" />
     <!--JavaScript File-->
     <script src="index.js" defer></script>
 </head>
@@ -18,109 +18,135 @@
     <div class="container">
         <!--Header-->
         <div class="page-header">
-            <div>Programming Projects</div>
+            <div>Graphics Projects</div>
         </div>
         <!--Nav Bar-->
         <div>
             <ul class="nav nav-pills nav-justified">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="programming.html">Programming</a></li>
-                <li class="active"><a href="anim.html">Graphics</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="programming.html">Programming</a></li>
+                <li class="nav-item"><a class="nav-link active" href="anim.html">Graphics</a></li>
             </ul>
         </div>
         <br />
         <!--Content-->
         <div>
-            <input class="form-control" id="myInput" type="text" placeholder="Search...">
-            <br>
-            <!--Table-->
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Project</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                        <th>Software</th>
-                    </tr>
-                </thead>
-                <tbody id="ProjectsTable">
-                    <tr>
-                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/bTnBc8FXGI0"><b>Animation Reel</b></a></td>
-                        <td>Animation</td>
-                        <td>
-                            Audio is from <a href="https://www.twitch.tv/silentsentry">SilentSentry's</a> character <a href="https://nopixel.fandom.com/wiki/Ron_Otterman">Ron Otterman</a>.
-                        </td>
-                        <td>Maya 2020, Adobe Priemere Pro, Audacity</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/nWQtD_295UM"><b>Walk Cycle</b></a></td>
-                        <td>Animation</td>
-                        <td>
-                            Blake was living a normal happy life...until the day he was attacked. They took his eye and burned his hand. Now he is on a mission...of REVENGE.
-                        </td>
-                        <td>Maya 2020, Adobe Priemere Pro</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/6Wf2XJkgRnU"><b>Juice Box</b></a></td>
-                        <td>Animation</td>
-                        <td>
-                            Storyboard <br />
-                            <a href="#ImgCarouselModal" data-toggle="modal"><img src="Images/storyboard01.png" alt="JuiceBoxStoryboard" class="tableImg" data-index="0" /></a>
-                        </td>
-                        <td>Maya 2020, Adobe Priemere Pro</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/Ab67uEcFVzQ"><b>Infinite Bouncing Ball</b></a></td>
-                        <td>Animation</td>
-                        <td>
-                            ...
-                        </td>
-                        <td>Maya 2020</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/Qsu_QBQNf0o"><b>Bouncing Balls</b></a></td>
-                        <td>Animation</td>
-                        <td>
-                            ...
-                        </td>
-                        <td>Maya 2020</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/mAhwBvYAH24"><b>Bouncing Ball</b></a></td>
-                        <td>Animation</td>
-                        <td>
-                            ...
-                        </td>
-                        <td>Maya 2020</td>
-                    </tr>
-                    <tr>
-                        <td>AKA RUN Puzzle Cube</td>
-                        <td>3D Modeling</td>
-                        <td>
-                            Physical Application created for my game company AKA RUN.<br />
-                            <a href="#ImgCarouselModal" data-toggle="modal"><img src="Images/AKARUN_cube_final.png" alt="LogoCube" class="tableImg" data-index="2" /></a>
-                        </td>
-                        <td>Adobe Photoshop, Blender3D, Cura, Ultimaker S3</td>
-                    </tr>
-                    <tr>
-                        <td>Enviroment</td>
-                        <td>3D Modeling</td>
-                        <td>
-                            Rebecca Mock room in the League of Legends World 2016 animation<br />
-                            <a href="#ImgCarouselModal" data-toggle="modal"><img src="Images/DeosaranA_0515_Environment.jpg" alt="EnviromentRender" class="tableImg" data-index="1" /></a>
-                        </td>
-                        <td>Maya 2019</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#videoModal" class="vidLink" data-toggle="modal" data-src="https://www.youtube.com/embed/NnPxf1z9xNw"><b>Raygun</b></a></td>
-                        <td>3D Modeling</td>
-                        <td>
-                            <a href="https://warhammer40k.fandom.com/wiki/Arc_Weapons"> Arc Pistol from Warhammer 40K</a>
-                        </td>
-                        <td>Maya 2019, Adobe Priemere Pro</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+                <input class="form-control" id="myInput" type="text" placeholder="Search...">
+                <br>
+                <div class="card-group">
+                    <div class="row">
+                        <!--Column 1-->
+                        <div class="col-md-4">
+                            <div class="card card-custom">
+                                <div class="card-top">
+                                    <a href="#ImgCarouselModal" data-bs-toggle="modal"><img src="Images/Arc_Pistol_Render.png" alt="ArcPistolRender" class="modalImg" data-bs-index="3" /></a>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Raygun</h4>
+                                    <p class="card-text">
+                                        <a href="https://warhammer40k.fandom.com/wiki/Arc_Weapons"> Arc Pistol from Warhammer 40K</a><br />
+                                        Blender 3D
+                                        <a href="#videoModal" class="vidLink" data-bs-toggle="modal" data-bs-src="https://www.youtube.com/embed/NnPxf1z9xNw">Original</a> made in Maya 2019 and Adobe Priemere Pro
+                                    </p>
+                                    <p class="card-text"><small>#3D Modelling #Blender 3D #Maya 2019 </small></p>
+                                </div>
+                            </div>
+                            <div class="card card-custom">
+                                <div class="card-top">
+                                    <iframe width="100%" height="235" src="https://www.youtube-nocookie.com/embed/6Wf2XJkgRnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Juice Box</h4>
+                                    <p class="card-text">
+                                        <a class="modalImg" href="#ImgCarouselModal" data-bs-toggle="modal" data-bs-index="0" />Storyboard</a>
+                                    </p>
+                                    <p class="card-text"><small>#3D Modelling #Blender 3D #Maya 2019 #Audacity</small></p>
+                                </div>
+                            </div>
+                            <div class="card card-custom">
+                                <div class="card-full">
+                                    <iframe width="100%" height="235" src="https://www.youtube-nocookie.com/embed/mAhwBvYAH24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div><div class="card-body">
+                                    <h4 class="card-title">Bouncing Ball</h4>
+                                    <p class="card-text"><small>#Maya 2020 #Adobe Priemere Pro</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Column 2-->
+                        <div class="col-md-4">
+                            <div class="card card-custom">
+                                <div class="card-top">
+                                    <iframe width="100%" height="235" src="https://www.youtube-nocookie.com/embed/bTnBc8FXGI0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Animation</h4>
+                                    <p class="card-text">
+                                        Audio is from <a href="https://www.twitch.tv/silentsentry">SilentSentry's</a> character <a href="https://nopixel.fandom.com/wiki/Ron_Otterman">Ron Otterman</a>.
+                                    </p>
+                                    <p class="card-text"><small>#Maya 2020 #Adobe Priemere Pro #Audacity</small></p>
+                                </div>
+                            </div>
+                            <div class="card card-custom">
+                                <div class="card-full">
+                                    <iframe width="100%" height="235" src="https://www.youtube-nocookie.com/embed/Ab67uEcFVzQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div><div class="card-body">
+                                    <h4 class="card-title">Ball Bouncing into Distance</h4>
+                                    <p class="card-text"><small>#Maya 2020 #Adobe Priemere Pro</small></p>
+                                </div>
+                            </div>
+                            <div class="card card-custom">
+                                <div class="card-top">
+                                    <a href="#ImgCarouselModal" data-bs-toggle="modal"><img src="Images/AKARUN_cube_final.png" alt="AKARUN Puzzle Cube" class="modalImg" data-bs-index="2" /></a>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">AKARUN Studios</h4>
+                                    <p class="card-text">
+                                        Logo and merch designs for my fictional game studio. 
+                                        <br />
+                                        Final design is a puzzle cube and its case with the AKARUN logo on the top and bottom.
+                                    </p>
+                                    <p class="card-text"><small>#3D Modelling #Blender 3D #Adobe Illustrator #Adobe Photoshop #Cura #Ultimaker S3</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Column 3-->
+                        <div class="col-md-4">
+                            <div class="card card-custom">
+                                <iframe width="100%" height="235" src="https://www.youtube-nocookie.com/embed/nWQtD_295UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="content">
+                                    <h4 class="card-title">Walk Cycle</h4>
+                                    <p class="card-text">
+                                        Blake was living a normal happy life...until the day he was attacked. They took his eye and burned his hand. Now he is on a mission...of REVENGE...
+                                    </p>
+                                    <p class="card-text"><small>#Maya 2020 #Adobe Priemere Pro</small></p>
+                                </div>
+                            </div>
+                            <div class="card card-custom">
+                                <div class="card-full">
+                                    <iframe width="100%" height="235" src="https://www.youtube-nocookie.com/embed/Qsu_QBQNf0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div><div class="card-body">
+                                    <h4 class="card-title">Bouncing Balls</h4>
+                                    <p class="card-text"><small>#Maya 2020 #Adobe Priemere Pro</small></p>
+                                </div>
+                            </div>
+                            <div class="card card-custom">
+                                <div class="card-top">
+                                    <a href="#ImgCarouselModal" data-bs-toggle="modal"><img src="Images/DeosaranA_0515_Environment.jpg" alt="ArcPistolRender" class="modalImg" data-bs-index="1" /></a>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">League of Legends Room</h4>
+                                    <p class="card-text">
+                                        Rebecca Mock room in the League of Legends World 2016 animation
+                                    </p>
+                                    <p class="card-text"><small>#3D Modelling #Maya 2019 </small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <br>
         </div>
     </div>
     <!--Modal -->
@@ -128,71 +154,60 @@
     <div class="modal" id="videoModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">YouTube Video</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
                 <!-- Content -->
                 <div class="modal-body">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe id="popupVid" class="embed-responsive-item" width="560" height="315" src="" allowfullscreen></iframe>
+                        <iframe id="popupVid" width="100%" height="465" src="https://www.youtube.com/embed/NnPxf1z9xNw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!--Image Modal -->
-    <div class="modal" id="ImgCarouselModal">
+    <div class="modal fade" id="ImgCarouselModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Image</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                 </div>
                 <!-- Content -->
                 <div class="modal-body">
                     <!--Image Carosuel -->
-                    <div id="ImgCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#ImgCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#ImgCarousel" data-slide-to="1"></li>
-                        </ol>
+                    <div id="ImgCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button data-bs-target="#ImgCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button data-bs-target="#ImgCarousel" data-bs-slide-to="1"></button>
+                        </div>
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="d-block" src="Images/storyboard01.png" alt="First slide">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="Images/storyboard01.png" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    Caption 1
+                                </div>
                             </div>
-                            <div class="item">
-                                <img class="d-block" src="Images/storyboard02.png" alt="Second slide">
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="Images/storyboard02.png" alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    Caption 2
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!--Carousel Controls-->
-                    <a class="left carousel-control" href="#ImgCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
+                    <a class="carousel-control-prev" href="#ImgCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visuallt-hidden">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#ImgCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
+                    <a class="carousel-control-next" href="#ImgCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visuallt-hidden">Next</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <br><!--Prevent Footer Overlap --><br>
-    <!--Footer -->
-    <footer class="container-fluid text-center">
-        <a href="https://github.com/ashleydeo">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-41-256.png" />
-        </a>
-        <a href="https://www.linkedin.com/in/ashley-deosaran-656358136">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-44-256.png" />
-        </a>
-        <a href="https://www.youtube.com/channel/UC9Q25Toi9Ya7lNMnCAwGbQw/">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-14-256.png" />
-        </a>
-    </footer>
+    <br />
 </body>
 </html>
