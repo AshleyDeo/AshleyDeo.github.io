@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- linkedin-in icon by Free Icons (https://free-icons.github.io/free-icons/) -->
+
+<svg
+   height="1em"
+   fill="currentColor"
+   viewBox="0 0 450 455"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="linkedin-in.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.8857143"
+     inkscape:cx="224.84848"
+     inkscape:cy="227.76515"
+     inkscape:window-width="1841"
+     inkscape:window-height="1051"
+     inkscape:window-x="1911"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="M 100 455 L 7 455 L 7 156 L 100 156 L 100 455 Z M 54 115 Q 31 114 16 99 L 16 99 Q 1 84 0 61 Q 1 30 27 14 Q 54 0 81 14 Q 107 30 108 61 Q 107 84 92 99 Q 77 114 54 115 L 54 115 Z M 448 455 L 355 455 L 355 309 Q 357 282 349 257 Q 341 232 307 230 Q 272 231 261 254 Q 250 277 251 307 L 251 455 L 158 455 L 158 156 L 248 156 L 248 197 L 249 197 Q 258 178 280 164 Q 303 149 337 148 Q 405 150 428 189 Q 450 229 448 291 L 448 455 L 448 455 Z"
+     id="path2"
+     style="fill:#ffffff;fill-opacity:1" />
+</svg>

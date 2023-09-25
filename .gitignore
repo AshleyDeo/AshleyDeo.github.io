@@ -391,5 +391,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Other Files
 futoshiki.html
 futoshiki.js

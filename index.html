@@ -1,60 +1,95 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Welcome</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--JQuery CDN-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
-    <!--JavaScript File-->
-    <script src="index.js" defer></script>
-    <!--CSS Stylesheet  灰の木の牧草地-->
-    <link rel="stylesheet" type="text/css" href="index.css" />
-</head>
-<body>
-    <div class="parallax1" style="padding: .5em;">
-        <div class="row">
-            <div class="container col-1">
-                <div class="verticalText mPlus1 shadow boxBorder shadowBox">アシュリー</div>
-            </div>
-            <div class="horizontalText col-2 shadow">Ashley Deosaran</div>
-            <div class="col-3 stack-vert">
-                <a class="btn" href="programming.html">Programming</a>
-                <a class="btn" href="anim.html">Graphics</a>
-                <a href="https://github.com/ashleydeo">
-                    <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-41-256.png" />
-                </a>
-                <a href="https://www.linkedin.com/in/ashley-deosaran-656358136">
-                    <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-44-256.png" />
-                </a>
-                <a href="https://www.youtube.com/channel/UC9Q25Toi9Ya7lNMnCAwGbQw/">
-                    <img src="https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-14-256.png" />
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="container colorBackground">
-        <h4>About Me</h4>
-        <p class="card">
-            I am an aspiring software engineer with a degree in Computer Science and two minors in Integrated Digital Media and Game Engineering. I'm particularly interested in software engineering or web development where I can apply my knowledege of the various programming languages. Please feel free to get in touch with me via email at deosaran.ashley@gmail.com.
-        </p>
-        <br />
-        <div class="row">
-            <div class="col-4">
-                <h5>Proficient:</h5>
-                <p>HTML, CSS, C++, Javascript, Unity, Blender 3D, Google Suite, Microsoft Suite, Gamemaker Studio</p>
-            </div>
-            <div class="col-4">
-                <h5>Knowledgeable:</h5>
-                <p>Java, SQL, Python, Autodesk Maya, Agile, Git, JQuery, Filemaker</p>
-            </div>
-            <div class="col-4">
-                <h5>Familiar:</h5>
-                <p>Adobe Suite</p>
-            </div>
-        </div>
-    </div>
-</body>
+
+	<head>
+		<title>Welcome</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!--JQuery CDN-->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<!--JavaScript File-->
+		<script src="index.js" defer></script>
+		<!--CSS Stylesheet  灰の木の牧草地-->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+
+	<body>
+		<div class="grid">
+			<div class="num" style="grid-column: 1; grid-row: 1 / span 2; text-wrap: wrap;"> 0 4 1 4 </div>
+			<div class="parallelogram" style="width: 100%; grid-column: 2/span 3; grid-row: 1;"></div>
+			<div class="flex-horizontal" style="grid-column: 5/span 3; grid-row: 1;">
+				<div class="parallelogram" style="width: 5em;"> </div>
+				<div class="parallelogram" style="width: 5em;"> </div>
+				<div class="parallelogram" style="width: 5em;"> </div>
+				<div class="parallelogram" style="width: 5em;"> </div>
+				<div class="parallelogram" style="width: 5em;"> </div>
+			</div>
+			<div class="grid-des"
+				style="grid-column: 1; grid-row: 3 / span 4;  border: solid #40ccf7;; display: flex; justify-content: center; align-items: center;">
+				<div class=""
+					style="width: min-content; font-family: 'Rampart One'; font-size: 3rem; text-align: center; writing-mode: vertical-rl; background-color: #2b2b37; align-self: center; letter-spacing: 0.2rem;">
+					アシュリー</div>
+			</div>
+			<div class="boxed" style="grid-row: 5 / span 1; grid-column: 2 / span 4; padding: 1rem;">>>welcome...<span
+					class="blink">|</span></div>
+			<div class="largeTitle box-trace flex-vertical" style="grid-column: 2 / span 4; grid-row: 2 / span 2; gap: 0.1em;"
+				data-value="Ashley Deosaran">
+				<!-- <div class="diagonals" style=" position: relative;padding: 2rem; width: 100%;"></div> -->
+				<div style=" font-family: RoadRage; font-size: 6rem; padding: 0.2rem; text-align: center; color: #40ccf7;">
+					<div style=" line-height: 5rem;">Ashley</div>
+					<div style="top: -0.1rem;">Deosaran</div>
+				</div>
+			</div>
+
+			<!-- <div class="btn-container" style="grid-column: -1; grid-row: 2 / span 3">
+				<div class="diagonals" style=""></div>
+				<a class="btn-init" href="https://github.com/ashleydeo">
+					<img class="btn-circle" src="/Images/border01.svg" alt="Border" />
+					<img class="float-img" style="width: 4vw; height: 4vw; transform: translate(0.5vw, 0.5vw);"
+						src="/Images/github_invert.svg" alt="Github Icon" />
+				</a>
+				<a class="btn-init" href="https://www.linkedin.com/in/ashley-deosaran-656358136">
+					<img class="btn-circle" src="/Images/border01.svg" alt="Border" />
+					<img class="float-img" style="width: 2vw; height: 2vw; transform: translate(1.5vw, 1.5vw);"
+						src="/Images/linkedin-in.svg" alt="LinkedIn Icon" />
+				</a>
+				<a class="btn-init" href="https://www.youtube.com/channel/UC9Q25Toi9Ya7lNMnCAwGbQw/">
+					<img class="btn-circle" src="/Images/border01.svg" alt="Border" />
+					<img class="float-img" style="width: 3vw; height: 3vw; transform: translate(1vw, 1vw);"
+						src="/Images/youtube.svg" alt="Youtube Icon" />
+				</a>
+				<div class="diagonals" style=""></div>
+			</div> -->
+			<div class="flex-vertical" style="grid-row: 2 /span 8; grid-column: 6; overflow-y: scroll; top:0;">
+				<a class="btn-rect-01" href="programming.html">
+					<div class="btn-gears">Projects</div>
+					<div class="btn-barcode">Projects</div>
+				</a>
+				<a class="btn-rect-01" href="anim.html">
+					<div>Graphics</div>
+					<div class="btn-barcode">Graphics</div>
+				</a>
+				<a class="btn-rect-01" href="https://github.com/ashleydeo">
+					<div class="btn-git">Github</div>
+					<div class="btn-barcode">Github</div>
+				</a>
+				<a class="btn-rect-01" href="https://www.linkedin.com/in/ashley-deosaran-656358136">
+					<div class="btn-lnkdin">LinkedIn</div>
+					<div class="btn-barcode">LinkedIn</div>
+				</a>
+				<a class="btn-rect-01" href="https://www.youtube.com/channel/UC9Q25Toi9Ya7lNMnCAwGbQw/">
+					<div class="btn-yt">Youtube</div>
+					<div class="btn-barcode">Youtube</div>
+				</a>
+			</div>
+			<div class="parallelogram-rev" style="grid-row: 15"></div>
+			<div>
+				<div class="parallelogram-rev" style="grid-row: -2"></div>
+				<div class="parallelogram-rev" style="grid-row: -2"></div>
+				<div class="parallelogram-rev" style="grid-row: -2"></div>
+			</div>
+		</div>
+	</body>
+
 </html>

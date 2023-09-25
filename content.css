@@ -5,7 +5,7 @@ html,body {
     margin: 0;
 }
 body {
-    background-color: #17A0BF;
+    background-color: #2b2b37;
     color: white;
     font-family: 'M PLUS 1', sans-serif;
     font-size: calc(10px + 0.4vw);
@@ -16,17 +16,17 @@ a {
 }
 a:hover {
     text-decoration: none;
-    color: #9F4BF2;
+    color:#976bbb;
 }
 input {
-    color: black;
+    color: #00f639;
 }
 small {
     text-align: right;
     font-style: oblique;
 }
 footer {
-    background-color: #F8A4FF;
+    background-color: #2b2b37;
     padding: .5em;
     height: 8vh;
     width: 100%;
@@ -51,29 +51,26 @@ img {
 }
 /*Card*/
 .card-custom {
-    background-color: #0E667a;
+    background-color: transparent;
     color: white;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 
-        0 3px 1px -2px rgb(0 0 0 / 20%), 
-        0 1px 5px 0 rgb(0 0 0 / 12%);
+	border: solid white;
     font-size: calc(5px + 1.1vw);
     border-radius: 6px;
     padding: 1em;
     margin-bottom: 30px;
+}
+.card-custom:hover{
+	background-color: #976bbb;
 }
 .card-title{
     font-weight:bold;
 }
 .card-top {
     width: 100%;
-    margin-top: 30px;
-    margin-left: 15px;
-    margin-right: 15px;
+	margin: 0;
+	padding: 1rem;
     position: relative;
     overflow:hidden;
-    box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 
-        0 4px 25px 0px rgb(0 0 0 / 12%), 
-        0 8px 10px -5px rgb(0 0 0 / 20%);
 }
 img.card-top, iframe.card-top {
     width: 100%;
@@ -89,17 +86,18 @@ img.card-top, iframe.card-top {
     font-size: calc(10px + 1.5vw);
 }*/
 .modal-content {
-    background-color: #F3D7ED;
+    background-color: #2b2b37;
     color: #9F4BF2;
+	padding: 1rem;
 }
 .modalImg {
     max-width: 100%;
     height: auto;
+	padding: 1rem;
 }
 .resizeImg {
     max-width: 100%;
     height: auto;
-}
 }
 /*Carousel*/
 .carousel-control {
@@ -110,7 +108,7 @@ img.card-top, iframe.card-top {
 }
 .carousel-caption {
     background-color: rgba(14, 102, 122, 0.6);
-    font-size: calc(5px + 1.5vw);
+    font-size: 1rem;
 }
 .carousel-inner > .item > img {
     margin: 0 auto;
@@ -125,12 +123,9 @@ img.card-top, iframe.card-top {
 .nav-link:hover{
     background-color:floralwhite;
 }
-.nav-link.active{
-
-}
 a.btn-custom {
-    background-color: #9F4BF2;
-    color:white;
+    background-color: #40ccf7;
+    color:#2b2b37;
     text-align: center;
     font-style: normal;
     font-weight:bold;
