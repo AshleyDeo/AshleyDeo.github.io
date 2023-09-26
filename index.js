@@ -1,4 +1,4 @@
-let imgTitle = ["Juice Box Storyboard", "Environment", "Logo Project","Arc Pistol Render"]
+let imgTitle = ["Juice Box Storyboard", "Environment", "Logo Project", "Arc Pistol Render"]
 let imgCarouselSrc = [
     ['Images/storyboard01.png','Images/storyboard02.png'],
     ['Images/DeosaranA_0515_Environment.jpg'],
@@ -16,6 +16,21 @@ var cInd0 = $('<button data-bs-target="#ImgCarousel" data-bs-slide-to="0" class=
 var cImg = $('<img class="d-block w-100" src="" alt="slide">');
 
 $(document).ready(function () {
+	
+var todaysDate = new Date();
+	//Date
+	function convertDate(date) {
+		var yyyy = date.getFullYear().toString();
+		var mm = (date.getMonth()+1).toString();
+		var dd  = date.getDate().toString();
+
+		var mmChars = mm.split('');
+		var ddChars = dd.split('');
+
+		return yyyy + '-' + (mmChars[1]?mm:"0"+mmChars[0]) + '-' + (ddChars[1]?dd:"0"+ddChars[0]);
+	}
+	$("#Date").text(convertDate(todaysDate));
+
     //Search Filter
     $("#myInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
@@ -56,8 +71,8 @@ $(document).ready(function () {
     $(".modalImg").click(function () {
         let imgInd = $(this).data('bs-index');
         let carouselLen = imgCarouselSrc[imgInd].length;
-        $('.carousel-indicators button').remove();
-        $('.carousel-inner div').remove();
+        $('.carousel-indicators button').emove();
+        $('.carousel-inner div').emove();
         for (let i = 0; i < carouselLen; i++) {
             console.log(imgCarouselSrc[imgInd][i]);
             $('.carousel-inner').append('<div class="carousel-item"> <img class="d-block w-100" src="' + imgCarouselSrc[imgInd][i] + '" alt="Slide' + (i + 1) + '"> <div class="carousel-caption d-none d-md-block"><div class="carousel-caption d-none d-md-block">' + imgCarouselCap[imgInd][i] + '</div></div></div>');
