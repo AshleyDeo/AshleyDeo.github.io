@@ -291,18 +291,7 @@ html, body {
 		display: block;
 		padding: 0 0.125em;
 	}
-
-}		
-
-@for $colNum from 1 through 3 {
-	$duration: random(100) / 23 + 1;
-	$delay: $duration / 50;
-
-	.col-#{$colNum} :nth-child(#{$i}) {
-		animation-duration: #{$duration}s;
-		animation-delay: #{$i * $delay}s;
-	}
-}
+}	
 
 @media (max-width: 1000px) {
 	html, body {
