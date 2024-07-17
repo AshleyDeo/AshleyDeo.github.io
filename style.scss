@@ -11,6 +11,24 @@ $grid-rows: 20;
 $grid-cols: 6;
 $grid-row-height: 5em;
 
+html, body {
+	/*min-width: 80vw;
+    max-width: 100%;*/
+	min-height: 100%;
+	margin: 0;
+	background: url('/Images/grid-02.svg') repeat;
+	background-size: 3%;
+	animation: 120s bg-scrolling linear infinite;
+	background-color: $color01;
+	color: white;
+	font-size: calc(10px + 0.4vw);
+	padding: 1vw;
+	top: 0;
+	display: inline;
+	overflow-x: hidden;
+	overflow-wrap: break-word;
+}
+
 @mixin btn-init{
 
 }
@@ -44,7 +62,7 @@ html, body {
 @mixin flex-init {
 	display: flex;
 	top: 0;
-	flex: 1 2;
+	flex: 1 1 auto;
 	flex-basis: 5vw;
 	flex-wrap: nowrap;
 	gap: 0.1em;
@@ -62,6 +80,28 @@ html, body {
 	@include flex-init;
 	flex-direction: column;
 }
+@mixin flex-init-mobile {
+	display: flex;
+	top: 0;
+	flex: 1 1 auto;
+	flex-basis: 5rem;
+	flex-wrap: wrap;
+	gap: 0.1em;
+	//justify-content: space-evenly;
+	align-content: center;
+	align-items: stretch;
+	max-width: 100%;
+}
+
+.flex-horizontal-mobile {
+	@include flex-init-mobile;
+	flex-direction: row;
+}
+
+.flex-vertical-mobile {
+	@include flex-init-mobile;
+	flex-direction: column;
+}
 
 .grid {
 	display: grid;
@@ -77,7 +117,7 @@ html, body {
 	min-height: 1em;
 	content: " ";
 	display: inline;
-	background-color: $color01;
+	background-color: transparent;
 }
 
 .grid-des {
@@ -92,6 +132,7 @@ html, body {
 	background-image: url('/Images/diagonals.svg');
 	background-repeat: repeat;
 	background-size: 15vw;
+	animation: slide-left linear infinite;
 }
 
 .triangles {
@@ -102,13 +143,19 @@ html, body {
 	background-size: 10vw;
 }
 .largeTitle{
-	width: 80%;
-	height: 80%;
+	width: 40rem;
+	height: 10rem;
 	font-family: revamped;
 	font-size: 4rem;
 	text-align: center;
-	align-self: center;
 	padding: 1em;
+}
+.largeTitle-mobile{
+	background-color: $color01;
+	font-family: revamped;
+	font-size: 4rem;
+	text-align: center;
+	padding: 1.5rem;
 }
 .boxed {
 	padding: 0.1em 0.5em;
@@ -125,12 +172,14 @@ html, body {
 }
 
 .num {
-	padding: 0.1em;
+	padding: 0.5rem 1rem;
+	padding-top: 0.5rem;
 	font-family: 'Dela Gothic One';
-	font-size: 3rem;
-	text-align: center;
-	vertical-align: middle;
+	font-size: 2.5rem;
+	//text-align: center;
+	//vertical-align: middle;
 	text-shadow: 0.1em 0em $color03;
+	text-wrap: nowrap;
 }
 
 .btn-container {
@@ -152,7 +201,17 @@ html, body {
 .btn-init img:hover {
 	filter: invert(47%) sepia(13%) saturate(3969%) hue-rotate(218deg) brightness(103%) contrast(101%);
 }
-
+.blank-rect-white{
+	padding: 1rem;
+	padding-top: 1.5rem;
+	height: 1rem;
+	max-width: 10rem;
+	margin: 5px;
+	position: relative;
+	border: solid 3px;
+	background-color: white;
+	border-radius: 1%;
+}
 .btn-rect-01 {
 	padding: 1rem;
 	padding-top: 1.5rem;
@@ -163,12 +222,31 @@ html, body {
 	font-size: 1.3rem;
 	text-align: left;
 	text-decoration: none;
-	clip-path: polygon(var(--shape03));
 	position: relative;
 	margin: 5px;
 	height: 4rem;
-}
+	max-width: 10rem;
 
+}
+.btn-rect-mobile {
+	padding: 1rem;
+	padding-top: 1.5rem;
+	border: solid 3px;
+	background-color: #2b2b3788;
+	color: white;
+	font-family: Revamped;
+	font-size: 1.3rem;
+	text-align: left;
+	text-decoration: none;
+	position: relative;
+	margin: 5px;
+	height: 4rem;
+	width: 33vw;
+
+}
+.parallelogram{
+	clip-path: polygon(var(--shape03));
+}
 .btn-rect-01::before {
 	content: "";
 	position: absolute;
@@ -179,6 +257,21 @@ html, body {
 	color: $color01;
 	border-color: $color03;
 }
+.btn-rect-mobile:hover {
+	background: $color02;
+	color: $color01;
+	border-color: $color03;
+}
+
+.nippon{
+	width: min-content;
+	font-family: 'Rampart One';
+	font-size: 5rem;
+	text-align: center;
+	align-self: center;
+	writing-mode: horizontal-tb;
+	background-color: $color01;
+}
 
 @mixin after-img {
 	display: inline-block;
@@ -186,7 +279,7 @@ html, body {
 	width: calc(1px);
 	height: calc(1px);
 }
-.btn-rect-01:hover > .btn-gears::after {
+.btn-rect-01:hover > .btn-gears::after, .btn-rect-mobile:hover > .btn-gears::after {
 	@include after-img;
 	content: url('/Images/gears-inv.svg');
 }
@@ -194,7 +287,7 @@ html, body {
 	@include after-img;
 	content: url('/Images/gears.svg');
 }
-.btn-rect-01:hover > .btn-yt::after {
+.btn-rect-01:hover > .btn-yt::after, .btn-rect-mobile:hover > .btn-yt::after {
 	@include after-img;
 	content: url('/Images/youtube-rev.svg');
 }
@@ -202,7 +295,7 @@ html, body {
 	@include after-img;
 	content: url('/Images/youtube.svg');
 }
-.btn-rect-01:hover > .btn-git::after {
+.btn-rect-01:hover > .btn-git::after, .btn-rect-mobile:hover > .btn-git::after {
 	@include after-img;
 	content: url('/Images/github_rev.svg');
 }
@@ -210,13 +303,25 @@ html, body {
 	@include after-img;
 	content: url('/Images/github.svg');
 }
-.btn-rect-01:hover > .btn-lnkdin::after {
+.btn-rect-01:hover > .btn-lnkdin::after, .btn-rect-mobile:hover > .btn-lnkdin::after {
 	@include after-img;
 	content: url('/Images/linkedin-rev.svg');
 }
 .btn-lnkdin::after {
 	@include after-img;
 	content: url('/Images/linkedin-in.svg');
+}
+.btn-graphics::after {
+	@include after-img;
+	content: url('/Images/viewinar.svg');
+	height: 1rem;
+	width: auto;
+}
+.btn-rect-01:hover > .btn-graphics::after, .btn-rect-mobile:hover > .btn-graphics::after {
+	@include after-img;
+	content: url('/Images/viewinar-rev.svg');
+	height: 1em;
+	width: auto;
 }
 
 .float-img {
@@ -293,25 +398,29 @@ html, body {
 	}
 }	
 
-@media (max-width: 1000px) {
-	html, body {
-		font-size: 4px;
+@media (min-width: 1000px) {
+	.desktop{
+		display: block;
+	}
+	.mobile{
+		display: none;
 	}
 }
-@media screen and (max-width: 768px) {
-	.services-container {
-		grid-template-columns: 1fr;
-		grid-template-rows: 1fr;
+@media (max-width: 1000px) {
+	html, body{
+		background-size: 6%;
 	}
 
-	.cell-1,
-	.cell-2,
-	.cell-3,
-	.cell-4,
-	.cell-5,
-	.cell-6 {
-		grid-column: auto;
-		grid-row: auto;
+	.desktop {
+		display: none;
+	}
+	
+	.mobile {
+		display: block;
+	}
+	.diagonals{
+		display: block;
+		background-size: 30%;
 	}
 }
 
@@ -325,7 +434,7 @@ $anime-time: 20s;
 $border-size: 0.2em;
 
 %full-fill {
-	top: 0;
+	top: 1rem;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -335,7 +444,6 @@ $border-size: 0.2em;
 	@extend %full-fill;
 	position: relative;
 	box-shadow: inset 0 0 0 2px rgba($color05, .5);
-	margin: auto;
 
 	&::before,
 	&::after {
@@ -381,8 +489,17 @@ $border-size: 0.2em;
 	}
 }
 
+@keyframes slide-left {
+	0%, 100%{
+		background-position: 0%;
+	}
+	50% {
+		background-position: 50%;
+	}
+}
+
 @keyframes rotate {
-	0%,50%, 100% {
+	0%, 50%, 100% {
 		transform: rotate(0deg)
 	}
 
